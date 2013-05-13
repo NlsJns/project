@@ -1,0 +1,79 @@
+#form {
+	width: 400px;
+	margin: 0 auto;
+}
+#steden {
+	width: 330px;
+	display: block;
+	float: left;
+	margin-right: 10px;
+	height: 30px;
+	border: 1px solid #c50000;
+}
+#verzendknop {
+	width: 60px;
+	display: block;
+	float: left;
+	height: 30px;
+	background-color: #c50000;
+	border: none;
+	color: white;
+	border: 1px solid #c50000;
+}
+#header {
+	width: 800px;
+	margin: 0 auto;
+	height: auto;
+	display: block;
+	margin-top: 10px;
+}
+#logo {
+	width: 250px;
+	float: left;
+	height: 70px;
+}
+#logo img {
+	width: 100%;
+}
+#navtop {
+	width: 550px;
+	float: left;
+	height: 70px;
+	position: relative;
+}
+#navtop ul {
+	width: auto;
+	height: auto;
+	position: absolute;
+	bottom: 0;	
+	right: 0;
+}
+#navtop ul li {
+	float: left;
+	margin-left: 20px;
+}
+#container {
+	width: 800px;
+	margin: 0 auto;
+	height: auto;
+}
+#navleft {
+	width: 250px;
+	float: left;
+	height: auto;
+}
+#content {
+	width: 550px;
+	padding-top: 20px;
+	float: left;
+}
+#footer {
+	width: 900px;
+	margin: 0 auto;
+	display: block;
+	background-color: green;
+	height: 100px;
+}
+.inli {
+	padding-left: 15px;
+}
