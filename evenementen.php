@@ -12,6 +12,7 @@
 		$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city . "&format=json";
 		$events = json_decode(file_get_contents($url));
 		$categorie = "Alle Evenementen";
+		$category = "0";
 	}
 ?>
 <!doctype html>
@@ -42,17 +43,18 @@
 			<?php include("include_navigation.php") ?>
 		</div>
 		<div id="content">
+			<h3><?php echo($categorie);?><small> in <?php echo($city) ?></small></h3>
 			<ul>
 				<?php
 				foreach($events as $e)
 				{
-					echo "<li><a href='evenement.php?city=" . $city . "&id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
+					echo "<li><a href='evenement.php?city=" . $city . "&category=" . $category . "&id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
 				}
 				?>
 			</ul>
 		</div>
-	</div>
-	<div id="footer">
+		<div id="footer">
+		</div>
 	</div>
 </body>
 </html>
