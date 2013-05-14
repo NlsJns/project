@@ -1,7 +1,13 @@
 <?php
 	if(isset($_POST['Steden'])) {
 		$city = $_POST['Steden'];
+		$age = $_POST['Leeftijd'];
+		if($age == "0") {
 		header('Location: evenementen.php?city=' . $city );
+		}
+		else {
+		header('Location: evenementen.php?city=' . $city . '&age=' . $age );
+		}
 	}
 
 ?>
@@ -34,13 +40,13 @@
 			<label id="labelzoek">Waar wil je op zoek naar een evenement?</label>
 			<input class="field steden" type="text" name="Steden" placeholder="vb. Haacht">
 			<label id="labelleeftijd">Voor welke leeftijden zoek je een evenement?</label>
-			<select class="field">
+			<select class="field" name="Leeftijd">
 				<option value="0">Alle leeftijden</option>
-				<option value="1">0 tot 4 jaar</option>
-				<option value="2">4 tot 8 jaar</option>
-				<option value="3">8 tot 12 jaar</option>
-				<option value="4">12 tot 16 jaar</option>
-				<option value="5">Ouder dan 16 jaar</option>s
+				<option value="0-4">0 tot 4 jaar</option>
+				<option value="4-8">4 tot 8 jaar</option>
+				<option value="8-12">8 tot 12 jaar</option>
+				<option value="12-16">12 tot 16 jaar</option>
+				<option value="16-120">Ouder dan 16 jaar</option>s
 			</select>
 			<input id="verzendknop" value="Ok!" type="submit" />
         </form>

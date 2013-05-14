@@ -1,16 +1,26 @@
 <?php
-	if(isset($_GET['city']) && isset($_GET['category']))
+	if(isset($_GET['city']) && isset($_GET['age']) && isset($_GET['category']))
 	{
 		$category = $_GET['category'];
 		$categorie = $_GET['category'];
 		$city = $_GET['city'];
-		$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city ."&heading=" . $category . "&format=json";
+		$age = $_GET['age'];
+		$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city ."&heading=" . $category . "&agebetween" . $age . "&format=json";
 	 	$events = json_decode(file_get_contents($url));
 	}
-	else if(isset($_GET['city'])) {
+	else if(isset($_GET['city']) && isset($_GET['age'])) {
+		$city = $_GET['city'];
+		$age = $_GET['age'];
+		$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city . "&agebetween" . $age . "&format=json";
+		$events = json_decode(file_get_contents($url));
+		$categorie = "Alle Evenementen";
+		$category = "0";
+	}
+	else if(isset($_GET['city']))
+	{
 		$city = $_GET['city'];
 		$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city . "&format=json";
-		$events = json_decode(file_get_contents($url));
+	 	$events = json_decode(file_get_contents($url));
 		$categorie = "Alle Evenementen";
 		$category = "0";
 	}
