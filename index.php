@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<p> test 2 3 </p>
 	<div id="form">
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 			<label id="labelzoek">Waar wil je op zoek naar een evenement?</label>
