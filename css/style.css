@@ -1,24 +1,85 @@
-#form {
-	width: 400px;
-	margin: 0 auto;
+body {
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 62.5%;
 }
-#steden {
-	width: 330px;
-	display: block;
-	float: left;
-	margin-right: 10px;
+#welkom {
+	width: 100%;
+	background-color: #990000;
+	-webkit-box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);
+	box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);}
+#tekstarthur {
+	margin: 0 auto;
+	background-image: url(tekstballon.png);
+	background-repeat: no-repeat;
+	width: 600px;
+	position: fixed;
+	left: 50%;
+	margin: 15px 0 0 -300px;
+	height: 145px;
+}
+#tekstballon {
+	width: 180px;
+	height: 100px;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 1.5em;
+	line-height: 16px;
+}
+#arthur {
+	width: 151px;
+	height: 280px;
+	margin: 0 auto;
+	background-image: url(arthur.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
+#arthurside {
+	width: 90px;
+	position: fixed;
+	left: 50%;
+	margin: 0 0 0 200px;
+	height: 80px;
+	background-color: #009933;
+	float: right;
+}
+#form {
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.field {
+	padding: 0;
+	margin: 0;
+	width: 348px;
 	height: 30px;
-	border: 1px solid #c50000;
+	display: block;
+	border: 1px solid #990000;
+	clear: both;
+	margin-bottom: 15px;
+}
+.steden {
+	width: 340px;
+	padding-left: 7px;
+}
+#labelzoek, #labelleeftijd {
+	width: 348px;
+	display: block;
+	clear: both;
+	text-align: center;
+	margin-bottom: 5px;
+	font-size: 1.4em;
 }
 #verzendknop {
-	width: 60px;
+	width: 348px;
 	display: block;
-	float: left;
 	height: 30px;
-	background-color: #c50000;
-	border: none;
+	background-color: #990000;
+	border: 1px solid #990000;
 	color: white;
-	border: 1px solid #c50000;
+	border: 1px solid #990000;
+	margin-top: 15px;
+	font-size: 1.3em;
 }
 #header {
 	width: 800px;
