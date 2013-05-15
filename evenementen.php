@@ -1,4 +1,15 @@
 <?php
+	if(isset($_POST['Steden'])) {
+		$city = $_POST['Steden'];
+		$age = $_POST['Leeftijd'];
+		if($age == "0") {
+		header('Location: evenementen.php?city=' . $city );
+		}
+		else {
+		header('Location: evenementen.php?city=' . $city . '&age=' . $age );
+		}
+	}
+
 	if(isset($_GET['city']) && isset($_GET['age']) && isset($_GET['category']))
 	{
 		$category = $_GET['category'];
@@ -42,10 +53,20 @@
 		<div id="logo">
 		</div>
 		<div id="navtop">
-			<ul>
-				<li><a href="#">Eenvoudige modus</a></li>
-				<li><a href="#">Contact</a></li>
-        	</ul>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+			<label class="label onpage">Wijzig locatie</label>
+			<input class="onpage stad" type="text" name="Steden" placeholder="vb. Haacht">
+			<label class="label onpage">Wijzig leeftijd</label>
+			<select class="onpage" name="Leeftijd">
+				<option value="0-120">Alle leeftijden</option>
+				<option value="0-4">0 tot 4 jaar</option>
+				<option value="4-8">4 tot 8 jaar</option>
+				<option value="8-12">8 tot 12 jaar</option>
+				<option value="12-16">12 tot 16 jaar</option>
+				<option value="16-120">Ouder dan 16 jaar</option>s
+			</select>
+			<input id="submitonpage" value="Ok!" type="submit" />
+        </form>
 		</div>
 	</div>
 	</div>

@@ -65,7 +65,6 @@ body {
 	padding-left: 7px;
 }
 #labelzoek, #labelleeftijd {
-	width: 348px;
 	display: block;
 	clear: both;
 	text-align: center;
@@ -83,6 +82,44 @@ body {
 	margin-top: 15px;
 	font-size: 1.3em;
 }
+#submitonpage {
+	width: 50px;
+	display: block;
+	height: 30px;
+	background-color: green;
+	border: 1px solid #990000;
+	color: white;
+	border: 1px solid #990000;
+	margin-top: 15px;
+	font-size: 1.3em;
+	clear: none;
+	float: left;
+	margin-top: 32px;
+	margin-left: 15px;
+}
+.onpage {
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 120px;
+	height: 30px;
+	color: black;
+	border: none;
+	clear: none;
+	float: left;
+	margin-top: 32px;
+}
+.stad {
+	width: 113px;
+	padding-left: 7px;
+}
+.label {
+	width: auto;
+	margin-right: 5px;
+	margin-left: 15px;
+	color: white;
+	line-height: 30px;
+}
 #header {
 	width: 800px;
 	margin: 0 auto;
@@ -99,8 +136,8 @@ body {
 	background-image: url(../images/logo.jpg);
 }
 #navtop {
-	width: 550px;
-	float: left;
+	width: auto;;
+	float: right;
 	height: 70px;
 	position: relative;
 	margin-top: 20px;
