@@ -191,6 +191,9 @@ body {
 	padding: 10px;
 	float: left;
 }
+#content img {
+	width: 50%;
+}
 #content h3 {
 	font-size: 2.6em;
 	margin-bottom: 10px;

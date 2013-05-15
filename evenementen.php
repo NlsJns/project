@@ -59,11 +59,41 @@
 			<label class="label onpage">Wijzig leeftijd</label>
 			<select class="onpage" name="Leeftijd">
 				<option value="0-120">Alle leeftijden</option>
-				<option value="0-4">0 tot 4 jaar</option>
-				<option value="4-8">4 tot 8 jaar</option>
-				<option value="8-12">8 tot 12 jaar</option>
-				<option value="12-16">12 tot 16 jaar</option>
-				<option value="16-120">Ouder dan 16 jaar</option>s
+				<option value="0-4"
+				<?php 
+					if($_GET['age'] == "0-4"){ 
+						echo('selected');
+					}
+				?>
+				>0 tot 4 jaar</option>
+				<option value="4-8"
+				<?php 
+					if($_GET['age'] == "4-18"){ 
+						echo('selected');
+					}
+				?>
+				>4 tot 8 jaar</option>
+				<option value="8-12"
+				<?php 
+					if($_GET['age'] == "8-12"){ 
+						echo('selected');
+					}
+				?>
+				>8 tot 12 jaar</option>
+				<option value="12-16"
+				<?php 
+					if($_GET['age'] == "12-16"){ 
+						echo('selected');
+					}
+				?>
+				>12 tot 16 jaar</option>
+				<option value="16-120"
+				<?php 
+					if($_GET['age'] == "16-120"){ 
+						echo('selected');
+					}
+				?>
+				>Ouder dan 16 jaar</option>
 			</select>
 			<input id="submitonpage" value="Ok!" type="submit" />
         </form>
