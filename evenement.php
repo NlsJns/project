@@ -1,4 +1,21 @@
 <?php
+	include_once("classes/Pictos.class.php");
+	$eventId = $_GET['id'];
+	$p = new Picto();
+	$pictos = $p->GetAllFromId($eventId);
+	if(isset($_POST['SendPictos'])) {
+		$eventId = $_GET['id'];
+		$lengte = $_POST['lengte'];
+		$emotie = $_POST['emotie'];
+		$genre = $_POST['genre'];
+		$p = new Picto();
+		$p->Save($eventId, $lengte, $emotie, $genre);
+		$Hid = $_GET['id'];
+		$Hcity = $_GET['city'];;
+		$Hage = $_GET['age'];;
+		$Hcategory = $_GET['age'];;
+		header('Location: evenement.php?city=' . $Hcity . '&age='. $Hage . '&category=' . $Hcategory . '&id=' . $Hid );
+	}
 	if(isset($_POST['Steden'])) {
 		$city = $_POST['Steden'];
 		$age = $_POST['Leeftijd'];
@@ -104,7 +121,50 @@
 			}
 
 			?>
-
+			
+			<?php
+				if(count($pictos) > 0) {
+					foreach($pictos as $p){
+						echo $p['cdbid'];
+						echo htmlspecialchars($p['lengte']);
+					}
+				}
+				else if(isset($_POST['verzendknop'])) {
+					echo "
+						<form action='' method='post'>
+						<label>Voor dit evenement bestaat nog geen picto-samenvatting.</label>
+						<select class='field' name='lengte'>
+							<option value='1'>Alle leeftijden</option>
+							<option value='2'>Alle leeftijden</option>
+							<option value='3'>Alle leeftijden</option>
+						</select>
+						<select class='field' name='emotie'>
+							<option value='1'>Alle leeftijden</option>
+							<option value='2'>Alle leeftijden</option>
+							<option value='3'>Alle leeftijden</option>
+						</select>
+						<select class='field' name='genre'>
+							<option value='1'>Alle leeftijden</option>
+							<option value='2'>Alle leeftijden</option>
+							<option value='3'>Alle leeftijden</option>
+						</select>
+						<input name='SendPictos' id='verzendknop' value='Ok!' type='submit' />
+						</form>					
+					";
+				}
+				else {
+					echo "			
+						<form action='' method='post'>
+						<label>Voor dit evenement bestaat nog geen picto-samenvatting.</label>
+						<input name='verzendknop' id='verzendknop' value='Ok!' type='submit' />
+						</form>
+					";
+				}
+			
+			
+			?>
+			
+			
 		</div>
 		<div id="footer">
 		</div>
