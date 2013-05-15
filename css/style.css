@@ -74,11 +74,9 @@ body {
 #verzendknop {
 	width: 348px;
 	display: block;
-	height: 30px;
+	height: 32px;
 	background-color: #990000;
-	border: 1px solid #990000;
 	color: white;
-	border: 1px solid #990000;
 	margin-top: 15px;
 	font-size: 1.3em;
 }
@@ -181,9 +179,8 @@ body {
 	color: white;
 	text-decoration: none;
 }
-#navleft ul li a:hover {
+#navleft ul li a:hover {
 	text-decoration: underline;
-	color: green;
 }
 #content {
 	width: 530px;
@@ -207,6 +204,19 @@ body {
 #content ul li {
 	height: 18px;
 	font-size: 1.4em;
+}
+.formgrootblok {
+	float: left;
+	clear: both;
+}
+.formblok {
+	width: 80px;
+	float: left;
+	margin-right: 15px;
+}
+.input {
+	width: 14px;
+	margin-left: 33px;
 }
 #footer {
 	width: 100%;

@@ -4,10 +4,22 @@
 	$p = new Picto();
 	$pictos = $p->GetAllFromId($eventId);
 	if(isset($_POST['SendPictos'])) {
+		$id = $_GET['id'];
 		$eventId = $_GET['id'];
-		$lengte = $_POST['lengte'];
-		$emotie = $_POST['emotie'];
+		if(isset($_POST['lengte'])) {
+			$lengte = $_POST['lengte'];
+		}
+		else {
+			$lengte = "leeg";
+		}
+		$emoties ='';
+		foreach($_POST['emotie'] as $check) {
+			$emoties.= $check.';';
+		}
+		$emotie = substr($emoties,0,-1);
+		
 		$genre = $_POST['genre'];
+		try {
 		$p = new Picto();
 		$p->Save($eventId, $lengte, $emotie, $genre);
 		$Hid = $_GET['id'];
@@ -15,16 +27,16 @@
 		$Hage = $_GET['age'];;
 		$Hcategory = $_GET['age'];;
 		header('Location: evenement.php?city=' . $Hcity . '&age='. $Hage . '&category=' . $Hcategory . '&id=' . $Hid );
+		}
+		catch(Exception $e) {
+			$feedback = $e->getMessage();			
+		}
 	}
 	if(isset($_POST['Steden'])) {
-		$city = $_POST['Steden'];
+		$city = $_GET['city'];
 		$age = $_POST['Leeftijd'];
-		if($age == "0") {
-		header('Location: evenementen.php?city=' . $city );
-		}
-		else {
+		$category = $_GET['category'];
 		header('Location: evenementen.php?city=' . $city . '&age=' . $age );
-		}
 	}
 	if(isset($_GET['id']) && isset($_GET['age']) && isset($_GET['city']))
 	{
@@ -52,7 +64,7 @@
 		<div id="logo">
 		</div>
 		<div id="navtop">
-		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+		<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 			<label class="label onpage">Wijzig locatie</label>
 			<input class="onpage stad" type="text" name="Steden" placeholder="vb. Haacht">
 			<label class="label onpage">Wijzig leeftijd</label>
@@ -108,7 +120,6 @@
 		<div id="content">
 			<h3><?php echo $event->event->eventdetails->eventdetail->title; ?> <small>in <?php echo($city) ?></small></h3>
       		<p><?php echo $event->event->eventdetails->eventdetail->shortdescription; ?></p>
-      			
 			<?php 
 
 			$images = $event->event->eventdetails->eventdetail->media->file; 
@@ -116,7 +127,7 @@
 			{
 				if($image->mediatype == "photo")
 				{
-					echo "<img src='" . $image->hlink . "' />";	
+					echo "<img src='" . $image->hlink . "' alt='" . $event->event->eventdetails->eventdetail->title . "'  />";	
 				}
 			}
 
@@ -129,32 +140,99 @@
 						echo htmlspecialchars($p['lengte']);
 					}
 				}
-				else if(isset($_POST['verzendknop'])) {
+				else if(isset($_POST['verzendknop']) || isset($feedback)) {
 					echo "
-						<form action='' method='post'>
-						<label>Voor dit evenement bestaat nog geen picto-samenvatting.</label>
-						<select class='field' name='lengte'>
-							<option value='1'>Alle leeftijden</option>
-							<option value='2'>Alle leeftijden</option>
-							<option value='3'>Alle leeftijden</option>
-						</select>
-						<select class='field' name='emotie'>
-							<option value='1'>Alle leeftijden</option>
-							<option value='2'>Alle leeftijden</option>
-							<option value='3'>Alle leeftijden</option>
-						</select>
-						<select class='field' name='genre'>
-							<option value='1'>Alle leeftijden</option>
-							<option value='2'>Alle leeftijden</option>
-							<option value='3'>Alle leeftijden</option>
-						</select>
-						<input name='SendPictos' id='verzendknop' value='Ok!' type='submit' />
-						</form>					
+						<form action='"?> <?php echo $_SERVER['REQUEST_URI']; ?> <?php echo "' method='post'>
+	<div class='formgrootblok'>
+		<div class='formblok'>
+			<img class='formimg' src='images/lengte/lengte_1.png' alt='lengte_1'>
+			<input class='input' type='radio' name='lengte' value='lengte_1'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/lengte/lengte_2.png' alt='lengte_2'>
+			<input class='input' type='radio' name='lengte' value='lengte_2'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/lengte/lengte_3.png' alt='lengte_3'>
+			<input class='input' type='radio' name='lengte' value='lengte_3'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/lengte/lengte_5.png' alt='lengte_5'>
+			<input class='input' type='radio' name='lengte' value='lengte_5'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/lengte/lengte_10.png' alt='lengte_10'>
+			<input class='input' type='radio' name='lengte' value='lengte_10'>
+		</div>
+	</div>
+	<div class='formgrootblok'>
+		<div class='formblok'>
+			<img class='formimg' src='images/emotie/emotie_blij.png' alt='emotie_blij'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_blij'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/emotie/emotie_bang.png' alt='emotie_bang'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_bang'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/emotie/emotie_boos.png' alt='emotie_boos'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_boos'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/emotie/emotie_genieten.png' alt='emotie_genieten'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_genieten'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/emotie/emotie_spannend.png' alt='emotie_spannend'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_spannend'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/emotie/emotie_verdrietig.png' alt='emotie_verdrietig'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_verdrietig'>
+		</div>
+	</div>
+	<div class='formgrootblok'>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/genre_dans.png' alt='genre_dans'>
+			<input class='input' type='checkbox' name='genre' value='genre_dans'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/genre_feest.png' alt='genre_feest'>
+			<input class='input' type='checkbox' name='genre' value='genre_feest'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/genre_film.png' alt='genre_film'>
+			<input class='input' type='checkbox' name='genre' value='genre_film'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/genre_humor.png' alt='genre_humor'>
+			<input class='input' type='checkbox' name='genre' value='genre_humor'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/genre_kunst.png' alt='genre_kunst'>
+			<input class='input' type='checkbox' name='genre' value='genre_kunst'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/genre_muziek.png' alt='genre_muziek'>
+			<input class='input' type='checkbox' name='genre' value='genre_muziek'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/genre_sport.png' alt='genre_sport'>
+			<input class='input' type='checkbox' name='genre' value='genre_sport'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/genre_uitstap.png' alt='genre_uitstap'>
+			<input class='input' type='checkbox' name='genre' value='genre_uitstap'>
+		</div>
+	</div>
+	<input name='SendPictos' id='verzendknop' value='Ok!' type='submit' />
+	</form>					
+
 					";
 				}
 				else {
 					echo "			
-						<form action='' method='post'>
+						<form action='"?> <?php echo $_SERVER['REQUEST_URI']; ?> <?php echo "' method='post'>
 						<label>Voor dit evenement bestaat nog geen picto-samenvatting.</label>
 						<input name='verzendknop' id='verzendknop' value='Ok!' type='submit' />
 						</form>
@@ -164,7 +242,7 @@
 			
 			?>
 			
-			
+			<?php if(isset($feedback)){echo($feedback);}?>
 		</div>
 		<div id="footer">
 		</div>

@@ -46,7 +46,7 @@
 				<option value="4-8">4 tot 8 jaar</option>
 				<option value="8-12">8 tot 12 jaar</option>
 				<option value="12-16">12 tot 16 jaar</option>
-				<option value="16-120">Ouder dan 16 jaar</option>s
+				<option value="16-120">Ouder dan 16 jaar</option>
 			</select>
 			<input id="verzendknop" value="Ok!" type="submit" />
         </form>

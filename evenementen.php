@@ -112,7 +112,7 @@
 				<?php
 				foreach($events as $e)
 				{
-					echo "<li><a href='evenement.php?city=" . $city . "&age=" . $age . "&category=" . $category . "&id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
+					echo "<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
 				}
 				?>
 			</ul>

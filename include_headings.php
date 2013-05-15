@@ -10,7 +10,7 @@ switch ($category) {
 		$categorie = "Festivals";
         break;
 		case 4:
-		$categorie = "Markten & kermissen";
+		$categorie = "Markten &amp; kermissen";
         break;
 		case 5:
 		$categorie = "Films";
@@ -19,7 +19,7 @@ switch ($category) {
 		$categorie = "";
         break;
 		case 7:
-		$categorie = "Expo & bezienswaardigheden";
+		$categorie = "Expo &amp; bezienswaardigheden";
         break;
 		case 8:
 		$categorie = "Beeldende kunsten";
@@ -28,34 +28,34 @@ switch ($category) {
 		$categorie = "Fotografie";
         break;
 		case 10:
-		$categorie = "Mode & design";
+		$categorie = "Mode &amp; design";
         break;
 		case 11:
-		$categorie = "Erfgoed & volkscultuur";
+		$categorie = "Erfgoed &amp; volkscultuur";
         break;
 		case 12:
-		$categorie = "Architectuur & monumenten";
+		$categorie = "Architectuur &amp; monumenten";
         break;
 		case 13:
-		$categorie = "Tuinen & parken";
+		$categorie = "Tuinen &amp; parken";
         break;
 		case 14:
 		$categorie = "Muziek";
         break;
 		case 15:
-		$categorie = "Pop & Rock";
+		$categorie = "Pop &amp; Rock";
         break;
 		case 16:
-		$categorie = "Dance & Techno";
+		$categorie = "Dance &amp; Techno";
         break;
 		case 17:
-		$categorie = "Jazz & Blues";
+		$categorie = "Jazz &amp; Blues";
         break;
 		case 18:
 		$categorie = "Wereldmuziek";
         break;
 		case 19:
-		$categorie = "Amusement & Kleinkunst";
+		$categorie = "Amusement &amp; Kleinkunst";
         break;
 		case 20:
 		$categorie = "Klassiek";
@@ -64,28 +64,28 @@ switch ($category) {
 		$categorie = "Andere";
         break;
 		case 22:
-		$categorie = "Podium & Literatuur";
+		$categorie = "Podium &amp; Literatuur";
         break;
 		case 23:
-		$categorie = "Theater & Dans";
+		$categorie = "Theater &amp; Dans";
         break;
 		case 24:
-		$categorie = "Literatuur & Humor";
+		$categorie = "Literatuur &amp; Humor";
         break;
 		case 25:
 		$categorie = "Cursussen en lezingen";
         break;
 		case 26:
-		$categorie = "Creatief & Kunst";
+		$categorie = "Creatief &amp; Kunst";
         break;
 		case 27:
 		$categorie = "";
         break;
 		case 28:
-		$categorie = "Computer & Techniek";
+		$categorie = "Computer &amp; Techniek";
         break;
 		case 29:
-		$categorie = "Mens & Maatschappij";
+		$categorie = "Mens &amp; Maatschappij";
         break;
 		case 30:
 		$categorie = "Natuur en Gezondheid";

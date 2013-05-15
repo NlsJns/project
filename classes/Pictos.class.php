@@ -26,7 +26,9 @@ class Picto
 	{
 		$conn = new mysqli($this->db_server, $this->db_user, $this->db_password, $this->db_database);
 		$conn->set_charset("utf8");
-		
+		if ($lengte == "leeg") {
+			throw new Exception('Gelieve een lengte in te vullen');
+		}
 		$query = "INSERT INTO `tblPictos` (`cdbid`, `lengte`, `emotie`, `genre`)
 VALUES
 	('".$conn->real_escape_string($eventId)."','".$conn->real_escape_string($lengte)."','".$conn->real_escape_string($emotie)."','".$conn->real_escape_string($genre)."');";
