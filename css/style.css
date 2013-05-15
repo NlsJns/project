@@ -2,12 +2,14 @@ body {
 	font-family: 'Merriweather Sans', sans-serif;
 	font-size: 62.5%;
 }
-#welkom {
+.top {
 	width: 100%;
+	height: auto;
 	background-color: #990000;
 	-webkit-box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);
 	box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);
-	-moz-box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);}
+	-moz-box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);
+}
 #tekstarthur {
 	margin: 0 auto;
 	background-image: url(tekstballon.png);
@@ -86,28 +88,31 @@ body {
 	margin: 0 auto;
 	height: auto;
 	display: block;
-	margin-top: 10px;
+	height: 90px;
 }
 #logo {
-	width: 250px;
+	width: 220px;
 	float: left;
 	height: 70px;
-}
-#logo img {
-	width: 100%;
+	margin-top: 20px;
+	margin-right: 20px;
+	background-image: url(../images/logo.jpg);
 }
 #navtop {
 	width: 550px;
 	float: left;
 	height: 70px;
 	position: relative;
+	margin-top: 20px;
 }
 #navtop ul {
 	width: auto;
 	height: auto;
 	position: absolute;
-	bottom: 0;	
+	bottom: 5px;	
 	right: 0;
+	color: white;
+	font-size: 1.3em;
 }
 #navtop ul li {
 	float: left;
@@ -119,14 +124,49 @@ body {
 	height: auto;
 }
 #navleft {
-	width: 250px;
+	width: 200px;
 	float: left;
 	height: auto;
+	background-color: green;
+	margin-top: 20px;
+	margin-right: 20px;
+	padding: 10px;
+	font-size: 1.4em;
+}
+#navleft ul {
+	list-style-type: none;
+}
+#navleft ul li {
+	color:  #bbbbbb;
+	height: 18px;
+}
+#navleft ul li a:link, #navleft ul li a:visited, #navleft ul li a:hover, #navleft ul li a:active {
+	color: white;
+	text-decoration: none;
+}
+#navleft ul li a:hover {
+	text-decoration: underline;
+	color: green;
 }
 #content {
-	width: 550px;
-	padding-top: 20px;
+	width: 530px;
+	margin-top: 20px;
+	padding: 10px;
 	float: left;
+}
+#content h3 {
+	font-size: 2.6em;
+	margin-bottom: 10px;
+}
+#content small {
+	font-size: 0.6em;
+}
+#content ul {
+	
+}
+#content ul li {
+	height: 18px;
+	font-size: 1.4em;
 }
 #footer {
 	width: 100%;

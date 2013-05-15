@@ -1,8 +1,9 @@
 <?php
-	if(isset($_GET['id']) && isset($_GET['city']))
+	if(isset($_GET['id']) && isset($_GET['age']) && isset($_GET['city']))
 	{
 		$id = $_GET['id'];
 		$city = $_GET['city'];;
+		$age = $_GET['age'];;
 		$url="http://build.uitdatabank.be/api/event/" .$id. "?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&format=json";
 		$event = json_decode(file_get_contents($url));
 	}
@@ -19,9 +20,9 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div class="top">
 	<div id="header">
 		<div id="logo">
-			<img src="images/logo.jpg" />
 		</div>
 		<div id="navtop">
 			<ul>
@@ -29,10 +30,13 @@
 				<li><a href="#">Contact</a></li>
         	</ul>
 		</div>
+		</div>
 	</div>
 	<div id="container">
 		<div id="navleft">
+			<ul>
 			<?php include("include_navigation.php") ?>
+			</ul>
 		</div>
 		<div id="content">
 			<h3><?php echo $event->event->eventdetails->eventdetail->title; ?> <small>in <?php echo($city) ?></small></h3>

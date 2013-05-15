@@ -2,7 +2,7 @@
 	if(isset($_GET['city']) && isset($_GET['age']) && isset($_GET['category']))
 	{
 		$category = $_GET['category'];
-		$categorie = $_GET['category'];
+		include("include_headings.php");
 		$city = $_GET['city'];
 		$age = $_GET['age'];
 		$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city ."&heading=" . $category . "&agebetween" . $age . "&format=json";
@@ -37,9 +37,9 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div class="top">
 	<div id="header">
 		<div id="logo">
-			<img src="images/logo.jpg" />
 		</div>
 		<div id="navtop">
 			<ul>
@@ -48,17 +48,20 @@
         	</ul>
 		</div>
 	</div>
+	</div>
 	<div id="container">
 		<div id="navleft">
-			<?php include("include_navigation.php") ?>
+			<ul>
+				<?php include("include_navigation.php") ?>
+			</ul>
 		</div>
 		<div id="content">
-			<h3><?php echo($categorie);?><small> in <?php echo($city) ?></small></h3>
+			<h3><?php echo($categorie);?>&nbsp;<small>in <?php echo($city) ?></small></h3>
 			<ul>
 				<?php
 				foreach($events as $e)
 				{
-					echo "<li><a href='evenement.php?city=" . $city . "&category=" . $category . "&id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
+					echo "<li><a href='evenement.php?city=" . $city . "&age=" . $age . "&category=" . $category . "&id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
 				}
 				?>
 			</ul>

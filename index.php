@@ -24,7 +24,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div id="welkom">
+	<div class="top">
 		<div id="tekstarthur">
 			<div id="tekstballon">Hoi, Ik ben Arthur, en ik help je zoeken naar cultuur!<br><br>
 				Begin met een gemeente of een stad in te vullen!
@@ -41,7 +41,7 @@
 			<input class="field steden" type="text" name="Steden" placeholder="vb. Haacht">
 			<label id="labelleeftijd">Voor welke leeftijden zoek je een evenement?</label>
 			<select class="field" name="Leeftijd">
-				<option value="0">Alle leeftijden</option>
+				<option value="0-120">Alle leeftijden</option>
 				<option value="0-4">0 tot 4 jaar</option>
 				<option value="4-8">4 tot 8 jaar</option>
 				<option value="8-12">8 tot 12 jaar</option>
