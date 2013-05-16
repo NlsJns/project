@@ -1,24 +1,46 @@
 <?php
+/////////////    INCLUDE PICTOS CLASS    /////////////
 	include_once("classes/Pictos.class.php");
+
+/////////////    GET PICTOSFROM ID    /////////////
+
 	$eventId = $_GET['id'];
 	$p = new Picto();
 	$pictos = $p->GetAllFromId($eventId);
+
+/////////////    IF PICTOS-READY    /////////////
+
 	if(isset($_POST['SendPictos'])) {
 		$id = $_GET['id'];
 		$eventId = $_GET['id'];
+		
+		/////////////    CHECK INPUTS. IF- EMPTY -> FILL WITH 'ERROR'    /////////////
+		$lengte = '';
 		if(isset($_POST['lengte'])) {
 			$lengte = $_POST['lengte'];
 		}
 		else {
-			$lengte = "leeg";
+			$lengte = "error";
 		}
+		if(isset($_POST['emotie'])) {
 		$emoties ='';
 		foreach($_POST['emotie'] as $check) {
 			$emoties.= $check.';';
 		}
 		$emotie = substr($emoties,0,-1);
+		}
+		else {
+			$emotie = "error";
+		}
+		if(isset($_POST['genre'])) {
+			$genre = $_POST['genre'];
+		}
+		else {
+			$genre = "error";
+		}
 		
-		$genre = $_POST['genre'];
+/////////////    TRY INSERT IN DATABASE    /////////////
+
 		try {
 		$p = new Picto();
 		$p->Save($eventId, $lengte, $emotie, $genre);
@@ -28,16 +50,34 @@
 		$Hcategory = $_GET['age'];;
 		header('Location: evenement.php?city=' . $Hcity . '&age='. $Hage . '&category=' . $Hcategory . '&id=' . $Hid );
 		}
+		
+/////////////    CATCH ERROR IF- TRY FAILS    /////////////
+
 		catch(Exception $e) {
-			$feedback = $e->getMessage();			
+			$feedback = $e->getMessage();
+			$emotieAr = explode(";", $emotie);			
 		}
 	}
-	if(isset($_POST['Steden'])) {
-		$city = $_GET['city'];
-		$age = $_POST['Leeftijd'];
-		$category = $_GET['category'];
-		header('Location: evenementen.php?city=' . $city . '&age=' . $age );
-	}
+	
+/////////////    SET NEW CITY or AGE    /////////////
+		
+		$nocity = "<div id='stadtest'> </div>";
+
+		if(isset($_POST['submitonpage'])) {
+			if(!empty($_POST['Steden'])) {
+				$city = $_POST['Steden'];
+				$age = $_POST['Leeftijd'];
+				header('Location: evenementen.php?city=' . $city . '&age=' . $age );
+			}
+			else {
+				$city = $_GET['city'];
+				$age = $_POST['Leeftijd'];
+				header('Location: evenementen.php?city=' . $city . '&age=' . $age );
+			}
+		}
+	
+/////////////    MAKE REQUEST (GET EVENTS)    /////////////
+
 	if(isset($_GET['id']) && isset($_GET['age']) && isset($_GET['city']))
 	{
 		$id = $_GET['id'];
@@ -47,8 +87,16 @@
 		$event = json_decode(file_get_contents($url));
 	}
 ?>
+
+<!-- /////////         END PHP      ///////// -->    
+
+<!-- /////////         START HTML      ///////// -->    
+
 <!doctype html>
 <html lang="en">
+
+<!-- /////////         START HEAD      ///////// -->    
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
@@ -57,13 +105,35 @@
 
 	<link rel="stylesheet" href="css/clear.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 </head>
+
+<!-- /////////         END HEAD      ///////// -->    
+
+<!-- /////////         START BODY      ///////// -->    
+
 <body>
+
+<!-- /////////         START TOP HEADER      ///////// -->    
+
 	<div class="top">
 	<div id="header">
 		<div id="logo">
 		</div>
+		
+		<!-- /////////         START FORM TOP      ///////// -->    
+
 		<div id="navtop">
+		 <?php 
+			 if(isset($nocity)) {
+				 echo($nocity);
+		    }
+	    ?>
+
 		<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 			<label class="label onpage">Wijzig locatie</label>
 			<input class="onpage stad" type="text" name="Steden" placeholder="vb. Haacht">
@@ -106,17 +176,41 @@
 				?>
 				>Ouder dan 16 jaar</option>
 			</select>
-			<input id="submitonpage" value="Ok!" type="submit" />
+			<input name="submitonpage" id="submitonpage" value="Ok!" type="submit" />
         </form>
 		</div>
 		</div>
+		
+		<!-- /////////         END FORM TOP      ///////// -->    
+
 	</div>
+	
+<!-- /////////         END TOP HEADER      ///////// -->    
+
+<!-- /////////         START CONTAINER      ///////// -->    
+
 	<div id="container">
-		<div id="navleft">
+	
+		<!-- /////////         START NAVIGATION      ///////// -->    
+		
+  	<nav>
+ 		<div class="navleft">
 			<ul>
-			<?php include("include_navigation.php") ?>
+			<?php include("include_ownnavigation.php") ?>
 			</ul>
 		</div>
+ 
+		<div class="navleft">
+			<ul>
+				<?php include("include_navigation.php") ?>
+			</ul>
+		</div>
+  	</nav>
+		
+		<!-- /////////         END NAVIGATION      ///////// -->    
+
+		<!-- /////////         START CONTENT      ///////// -->    
+
 		<div id="content">
 			<h3><?php echo $event->event->eventdetails->eventdetail->title; ?> <small>in <?php echo($city) ?></small></h3>
       		<p><?php echo $event->event->eventdetails->eventdetail->shortdescription; ?></p>
@@ -134,61 +228,167 @@
 			?>
 			
 			<?php
+
+ /////////         CHECK FOR PICTOS      ///////// 
+
 				if(count($pictos) > 0) {
 					foreach($pictos as $p){
 						echo $p['cdbid'];
 						echo htmlspecialchars($p['lengte']);
 					}
 				}
+
+ /////////         GENERATE PICTOS-FORM IF- COMPOSE-BUTTON.CLICK      ///////// 
+
+
 				else if(isset($_POST['verzendknop']) || isset($feedback)) {
 					echo "
 						<form action='"?> <?php echo $_SERVER['REQUEST_URI']; ?> <?php echo "' method='post'>
 	<div class='formgrootblok'>
 		<div class='formblok'>
 			<img class='formimg' src='images/lengte/lengte_1.png' alt='lengte_1'>
-			<input class='input' type='radio' name='lengte' value='lengte_1'>
+			<input class='input' type='radio' name='lengte' value='lengte_1'
+			"?> <?php
+			if(isset($feedback) && ($lengte == 'lengte_1') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
 			<img class='formimg' src='images/lengte/lengte_2.png' alt='lengte_2'>
-			<input class='input' type='radio' name='lengte' value='lengte_2'>
+			<input class='input' type='radio' name='lengte' value='lengte_2'
+			"?> <?php
+			if(isset($feedback) && ($lengte == 'lengte_2') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
 			<img class='formimg' src='images/lengte/lengte_3.png' alt='lengte_3'>
-			<input class='input' type='radio' name='lengte' value='lengte_3'>
+			<input class='input' type='radio' name='lengte' value='lengte_3'
+			"?> <?php
+			if(isset($feedback) && ($lengte == 'lengte_3') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
 			<img class='formimg' src='images/lengte/lengte_5.png' alt='lengte_5'>
-			<input class='input' type='radio' name='lengte' value='lengte_5'>
+			<input class='input' type='radio' name='lengte' value='lengte_5'
+			"?> <?php
+			if(isset($feedback) && ($lengte == 'lengte_5') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
 			<img class='formimg' src='images/lengte/lengte_10.png' alt='lengte_10'>
-			<input class='input' type='radio' name='lengte' value='lengte_10'>
+			<input class='input' type='radio' name='lengte' value='lengte_10'
+			"?> <?php
+			if(isset($feedback) && ($lengte == 'lengte_10') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 	</div>
 	<div class='formgrootblok'>
 		<div class='formblok'>
 			<img class='formimg' src='images/emotie/emotie_blij.png' alt='emotie_blij'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_blij'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_blij'
+			"?> <?php
+			if(isset($feedback) && in_array("emotie_blij", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
 			<img class='formimg' src='images/emotie/emotie_bang.png' alt='emotie_bang'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_bang'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_bang'
+			"?> <?php
+			if(isset($feedback) && in_array("emotie_bang", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
 			<img class='formimg' src='images/emotie/emotie_boos.png' alt='emotie_boos'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_boos'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_boos'
+			"?> <?php
+			if(isset($feedback) && in_array("emotie_boos", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
 			<img class='formimg' src='images/emotie/emotie_genieten.png' alt='emotie_genieten'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_genieten'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_genieten'
+			"?> <?php
+			if(isset($feedback) && in_array("emotie_genieten", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
 			<img class='formimg' src='images/emotie/emotie_spannend.png' alt='emotie_spannend'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_spannend'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_spannend'
+			"?> <?php
+			if(isset($feedback) && in_array("emotie_spannend", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
 			<img class='formimg' src='images/emotie/emotie_verdrietig.png' alt='emotie_verdrietig'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_verdrietig'>
+			<input class='input' type='checkbox' name='emotie[]' value='emotie_verdrietig'
+			"?> <?php
+			if(isset($feedback) && in_array("emotie_verdrietig", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 	</div>
 	<div class='formgrootblok'>
@@ -230,6 +430,9 @@
 
 					";
 				}
+
+ /////////         GENERATE COMPOSE-BUTTON IF- NO PICTOS      ///////// 
+
 				else {
 					echo "			
 						<form action='"?> <?php echo $_SERVER['REQUEST_URI']; ?> <?php echo "' method='post'>
@@ -241,11 +444,29 @@
 			
 			
 			?>
-			
+
+<!-- /////////         GET FEEDBACK FROM CLICK      ///////// -->
+
 			<?php if(isset($feedback)){echo($feedback);}?>
 		</div>
+		
+		<!-- /////////         END CONTENT      ///////// -->  
+		  
+		<!-- /////////         START FOOTER      ///////// -->    
+
 		<div id="footer">
 		</div>
+
+		<!-- /////////         END FOOTER      ///////// -->    
+
 	</div>
+
+	<!-- /////////         END CONTAINER      ///////// -->    
+
 </body>
+
+<!-- /////////         END BODY      ///////// -->    
+
 </html>
+
+<!-- /////////         END HTML      ///////// -->    

@@ -6,13 +6,11 @@ body {
 	width: 100%;
 	height: auto;
 	background-color: #990000;
-	-webkit-box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);
 	box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);
-	-moz-box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);
 }
 #tekstarthur {
 	margin: 0 auto;
-	background-image: url(tekstballon.png);
+	background-image: url(../images/tekstballon.png);
 	background-repeat: no-repeat;
 	width: 600px;
 	position: fixed;
@@ -32,7 +30,7 @@ body {
 	width: 151px;
 	height: 280px;
 	margin: 0 auto;
-	background-image: url(arthur.png);
+	background-image: url(../images/arthur.png);
 	background-repeat: no-repeat;
 	background-position: center bottom;
 }
@@ -64,6 +62,24 @@ body {
 	width: 340px;
 	padding-left: 7px;
 }
+#nocity {
+	display: block;
+	width: 340px;
+	margin: 0 auto;
+	text-align: center;
+	color: #990000;
+	margin-top: 10px;
+}
+#stadtest {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	float: right;
+	color: white;
+	text-align: right;
+	margin-top: 15px;
+	height: 15px;
+}
 #labelzoek, #labelleeftijd {
 	display: block;
 	clear: both;
@@ -79,12 +95,13 @@ body {
 	color: white;
 	margin-top: 15px;
 	font-size: 1.3em;
+	border: none;
 }
 #submitonpage {
 	width: 50px;
 	display: block;
 	height: 30px;
-	background-color: green;
+	background-color: #2a9e4b;
 	border: 1px solid #990000;
 	color: white;
 	border: 1px solid #990000;
@@ -92,7 +109,7 @@ body {
 	font-size: 1.3em;
 	clear: none;
 	float: left;
-	margin-top: 32px;
+	margin-top: 3px;
 	margin-left: 15px;
 }
 .onpage {
@@ -105,7 +122,7 @@ body {
 	border: none;
 	clear: none;
 	float: left;
-	margin-top: 32px;
+	margin-top: 3px;
 }
 .stad {
 	width: 113px;
@@ -158,28 +175,46 @@ body {
 	margin: 0 auto;
 	height: auto;
 }
-#navleft {
+nav {
+	float: left;
+	font-size: 0.9em;
+}
+.navleft {
 	width: 200px;
 	float: left;
 	height: auto;
-	background-color: green;
+	background-color: #2a9e4b;
 	margin-top: 20px;
 	margin-right: 20px;
 	padding: 10px;
 	font-size: 1.4em;
+	clear: both;
 }
-#navleft ul {
+.navleft ul {
 	list-style-type: none;
 }
-#navleft ul li {
-	color:  #bbbbbb;
-	height: 18px;
+.navleft ul h1 {
+	margin-bottom: 5px;
+	text-decoration: underline;
+	color: #990000;
 }
-#navleft ul li a:link, #navleft ul li a:visited, #navleft ul li a:hover, #navleft ul li a:active {
-	color: white;
+.navleft ul li {
+	color:  #333333;
+	height: 18px;
+	line-height: 18px;
+}
+.navleft a:link, .navleft a:visited, .navleft a:hover, .navleft a:active {
+	text-decoration: none;
+	color:  #333333;
+}
+.navleft a:hover {
 	text-decoration: none;
 }
-#navleft ul li a:hover {
+.markup a:link, .markup a:visited, .markup a:hover, .markup a:active {
+	text-decoration: none;
+	color: white;
+}
+.markup a:hover {
 	text-decoration: underline;
 }
 #content {
@@ -227,4 +262,7 @@ body {
 }
 .inli {
 	padding-left: 15px;
+}
+.icon-angle-down {
+	font-size: 1.2em;
 }

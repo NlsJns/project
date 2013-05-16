@@ -1,18 +1,27 @@
 <?php
-	if(isset($_POST['Steden'])) {
-		$city = $_POST['Steden'];
-		$age = $_POST['Leeftijd'];
-		if($age == "0") {
-		header('Location: evenementen.php?city=' . $city );
+	if(isset($_POST['submitindex'])) {
+		if(!empty($_POST['Steden'])) {
+			$city = $_POST['Steden'];
+			$age = $_POST['Leeftijd'];
+			header('Location: evenementen.php?city=' . $city . '&age=' . $age );
 		}
 		else {
-		header('Location: evenementen.php?city=' . $city . '&age=' . $age );
+			$nocity = "<div id='nocity'>Gelieve een stad in te vullen aub!</div>";
 		}
 	}
 
 ?>
+
+<!-- /////////         END PHP      ///////// -->   
+
+ 
+<!-- /////////         START HTML      ///////// -->    
+
 <!doctype html>
 <html lang="en">
+
+<!-- /////////         START HEAD      ///////// -->    
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
@@ -23,7 +32,14 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 </head>
+
+<!-- /////////         END HEAD      ///////// --> 
+
+   
+<!-- /////////         START BODY      ///////// -->    
 <body>
+<!-- /////////         START TOP ATHUR      ///////// -->    
+
 	<div class="top">
 		<div id="tekstarthur">
 			<div id="tekstballon">Hoi, Ik ben Arthur, en ik help je zoeken naar cultuur!<br><br>
@@ -35,6 +51,11 @@
 			<div id="arthurside"></div>
 		</div>
 	</div>
+
+<!-- /////////         END TOP ATHUR      ///////// -->    
+
+<!-- /////////         START BOTTOM FORM      ///////// -->    
+
 	<div id="form">
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 			<label id="labelzoek">Waar wil je op zoek naar een evenement?</label>
@@ -48,9 +69,21 @@
 				<option value="12-16">12 tot 16 jaar</option>
 				<option value="16-120">Ouder dan 16 jaar</option>
 			</select>
-			<input id="verzendknop" value="Ok!" type="submit" />
+			<input name="submitindex" id="verzendknop" value="Ok!" type="submit" />
         </form>
     </div>
-	
+    <?php 
+	    if(isset($nocity)) {
+		    echo($nocity);
+	    }
+    ?>
+    
+<!-- /////////         END BOTTOM FORM      ///////// -->    
+
 </body>
+
+<!-- /////////         END BODY      ///////// --> 
+
 </html>
+
+<!-- /////////         END HTML      ///////// --> 

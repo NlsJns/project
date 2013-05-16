@@ -1,16 +1,26 @@
 <?php
-	if(isset($_POST['Steden'])) {
-		$city = $_POST['Steden'];
-		$age = $_POST['Leeftijd'];
-		if($age == "0") {
-		header('Location: evenementen.php?city=' . $city );
-		}
-		else {
-		header('Location: evenementen.php?city=' . $city . '&age=' . $age );
-		}
-	}
+					include_once("classes/Pictos.class.php");
 
-	if(isset($_GET['city']) && isset($_GET['age']) && isset($_GET['category']))
+	
+/////////////    SET NEW CITY or AGE    /////////////
+
+		$nocity = "<div id='stadtest'> </div>";
+
+		if(isset($_POST['submitonpage'])) {
+			if(!empty($_POST['Steden'])) {
+				$city = $_POST['Steden'];
+				$age = $_POST['Leeftijd'];
+				header('Location: evenementen.php?city=' . $city . '&age=' . $age );
+			}
+			else {
+				$city = $_GET['city'];
+				$age = $_POST['Leeftijd'];
+				header('Location: evenementen.php?city=' . $city . '&age=' . $age );
+			}
+		}
+
+/////////////    MAKE REQUEST (GET EVENTS -> ALL)    /////////////
+	else if(isset($_GET['city']) && isset($_GET['age']) && isset($_GET['category']))
 	{
 		$category = $_GET['category'];
 		include("include_headings.php");
@@ -19,6 +29,9 @@
 		$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city ."&heading=" . $category . "&agebetween" . $age . "&format=json";
 	 	$events = json_decode(file_get_contents($url));
 	}
+
+/////////////    MAKE REQUEST (GET EVENTS -> WITHOUT CATEGORY)    /////////////
+
 	else if(isset($_GET['city']) && isset($_GET['age'])) {
 		$city = $_GET['city'];
 		$age = $_GET['age'];
@@ -27,6 +40,9 @@
 		$categorie = "Alle Evenementen";
 		$category = "0";
 	}
+
+/////////////    MAKE REQUEST (GET EVENTS -> WITHOUT CATEGORY AND AGE)    /////////////
+
 	else if(isset($_GET['city']))
 	{
 		$city = $_GET['city'];
@@ -36,8 +52,16 @@
 		$category = "0";
 	}
 ?>
+
+<!-- /////////         END PHP      ///////// -->    
+
+<!-- /////////         START HTML      ///////// -->    
+
 <!doctype html>
 <html lang="en">
+
+<!-- /////////         START HEAD      ///////// -->    
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
@@ -46,14 +70,37 @@
 
 	<link rel="stylesheet" href="css/clear.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 </head>
+
+<!-- /////////         END HEAD      ///////// -->    
+
+<!-- /////////         START BODY      ///////// -->    
+
 <body>
+
+<!-- /////////         START TOP HEADER      ///////// -->    
+
 	<div class="top">
 	<div id="header">
 		<div id="logo">
 		</div>
+
+		<!-- /////////         START TOP FORM      ///////// -->    
+		
 		<div id="navtop">
-		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
+		 <?php 
+			 if(isset($nocity)) {
+				 echo($nocity);
+		    }
+	    ?>
+
+		<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 			<label class="label onpage">Wijzig locatie</label>
 			<input class="onpage stad" type="text" name="Steden" placeholder="vb. Haacht">
 			<label class="label onpage">Wijzig leeftijd</label>
@@ -95,30 +142,89 @@
 				?>
 				>Ouder dan 16 jaar</option>
 			</select>
-			<input id="submitonpage" value="Ok!" type="submit" />
+			<input name="submitonpage" id="submitonpage" value="Ok!" type="submit" />
         </form>
 		</div>
+
 	</div>
+	
+	<!-- /////////         END TOP FORM      ///////// -->    
+
 	</div>
+	
+<!-- /////////         END TOP HEADER      ///////// -->    
+
+<!-- /////////         START CONTAINER      ///////// -->    
+
 	<div id="container">
-		<div id="navleft">
+	
+<!-- /////////         START NAVIGATION      ///////// -->  
+
+  	<nav>
+ 		<div class="navleft">
+			<ul>
+			<?php include("include_ownnavigation.php") ?>
+			</ul>
+		</div>
+ 
+		<div class="navleft">
 			<ul>
 				<?php include("include_navigation.php") ?>
 			</ul>
 		</div>
+  	</nav>
+
+<!-- /////////         END NAVIGATION      ///////// -->    
+
+<!-- /////////         START CONTENT      ///////// -->    
+
 		<div id="content">
-			<h3><?php echo($categorie);?>&nbsp;<small>in <?php echo($city) ?></small></h3>
-			<ul>
-				<?php
+		<?php
+			if(isset($_GET['lengte'])) {
+					$eventLengte = $_GET['lengte'];
+					$p = new Picto();
+					$pictos = $p->GetAllFromLengte($eventLengte);
+					foreach($events as $e)
+					{
+						if(in_array($e->cdbid,  $pictos)) {
+							echo "<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
+						}
+					}
+			}
+			else if(isset($_GET['emotie'])) {
+					$eventEmotie = $_GET['emotie'];
+					$p = new Picto();
+					$pictos = $p->GetAllFromEmotie($eventEmotie);
+										
+					foreach($events as $e)
+					{
+						if(in_array($e->cdbid,  $pictos)) {
+							echo "<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
+						}
+					}
+			}
+			else {
+				echo("<h3>" . $categorie . "&nbsp;<small>in " . $city . "</small></h3>");
+				echo("<ul>");
 				foreach($events as $e)
 				{
-					echo "<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
+				echo("<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>");
 				}
-				?>
-			</ul>
+				echo("</ul>");
+			}
+		
+		?>
 		</div>
 		<div id="footer">
 		</div>
 	</div>
+
+<!-- /////////         END CONTENT      ///////// -->    
+
 </body>
+
+<!-- /////////         END BODY      ///////// -->    
+
 </html>
+
+<!-- /////////         END HTML      ///////// -->    
