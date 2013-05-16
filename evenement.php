@@ -246,10 +246,10 @@
 						<form action='"?> <?php echo $_SERVER['REQUEST_URI']; ?> <?php echo "' method='post'>
 	<div class='formgrootblok'>
 		<div class='formblok'>
-			<img class='formimg' src='images/lengte/lengte_1.png' alt='lengte_1'>
-			<input class='input' type='radio' name='lengte' value='lengte_1'
+			<img class='formimg' src='images/lengte/1.png' alt='lengte_1'>
+			<input class='input' type='radio' name='lengte' value='1'
 			"?> <?php
-			if(isset($feedback) && ($lengte == 'lengte_1') ){ 
+			if(isset($feedback) && ($lengte == '1') ){ 
 			echo "checked='checked'"; 
 			} 
 			else 
@@ -259,10 +259,10 @@
 			>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/lengte/lengte_2.png' alt='lengte_2'>
-			<input class='input' type='radio' name='lengte' value='lengte_2'
+			<img class='formimg' src='images/lengte/2.png' alt='lengte2'>
+			<input class='input' type='radio' name='lengte' value='2'
 			"?> <?php
-			if(isset($feedback) && ($lengte == 'lengte_2') ){ 
+			if(isset($feedback) && ($lengte == '2') ){ 
 			echo "checked='checked'"; 
 			} 
 			else 
@@ -272,10 +272,10 @@
 			>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/lengte/lengte_3.png' alt='lengte_3'>
-			<input class='input' type='radio' name='lengte' value='lengte_3'
+			<img class='formimg' src='images/lengte/3.png' alt='lengte_3'>
+			<input class='input' type='radio' name='lengte' value='3'
 			"?> <?php
-			if(isset($feedback) && ($lengte == 'lengte_3') ){ 
+			if(isset($feedback) && ($lengte == '3') ){ 
 			echo "checked='checked'"; 
 			} 
 			else 
@@ -285,10 +285,10 @@
 			>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/lengte/lengte_5.png' alt='lengte_5'>
-			<input class='input' type='radio' name='lengte' value='lengte_5'
+			<img class='formimg' src='images/lengte/5.png' alt='lengte_5'>
+			<input class='input' type='radio' name='lengte' value='5'
 			"?> <?php
-			if(isset($feedback) && ($lengte == 'lengte_5') ){ 
+			if(isset($feedback) && ($lengte == '5') ){ 
 			echo "checked='checked'"; 
 			} 
 			else 
@@ -298,90 +298,10 @@
 			>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/lengte/lengte_10.png' alt='lengte_10'>
-			<input class='input' type='radio' name='lengte' value='lengte_10'
+			<img class='formimg' src='images/lengte/10.png' alt='lengte_10'>
+			<input class='input' type='radio' name='lengte' value='10'
 			"?> <?php
-			if(isset($feedback) && ($lengte == 'lengte_10') ){ 
-			echo "checked='checked'"; 
-			} 
-			else 
-			{echo '';}
-			?> <?php echo 
-			"
-			>
-		</div>
-	</div>
-	<div class='formgrootblok'>
-		<div class='formblok'>
-			<img class='formimg' src='images/emotie/emotie_blij.png' alt='emotie_blij'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_blij'
-			"?> <?php
-			if(isset($feedback) && in_array("emotie_blij", $emotieAr) ){ 
-			echo "checked='checked'"; 
-			} 
-			else 
-			{echo '';}
-			?> <?php echo 
-			"
-			>
-		</div>
-		<div class='formblok'>
-			<img class='formimg' src='images/emotie/emotie_bang.png' alt='emotie_bang'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_bang'
-			"?> <?php
-			if(isset($feedback) && in_array("emotie_bang", $emotieAr) ){ 
-			echo "checked='checked'"; 
-			} 
-			else 
-			{echo '';}
-			?> <?php echo 
-			"
-			>
-		</div>
-		<div class='formblok'>
-			<img class='formimg' src='images/emotie/emotie_boos.png' alt='emotie_boos'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_boos'
-			"?> <?php
-			if(isset($feedback) && in_array("emotie_boos", $emotieAr) ){ 
-			echo "checked='checked'"; 
-			} 
-			else 
-			{echo '';}
-			?> <?php echo 
-			"
-			>
-		</div>
-		<div class='formblok'>
-			<img class='formimg' src='images/emotie/emotie_genieten.png' alt='emotie_genieten'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_genieten'
-			"?> <?php
-			if(isset($feedback) && in_array("emotie_genieten", $emotieAr) ){ 
-			echo "checked='checked'"; 
-			} 
-			else 
-			{echo '';}
-			?> <?php echo 
-			"
-			>
-		</div>
-		<div class='formblok'>
-			<img class='formimg' src='images/emotie/emotie_spannend.png' alt='emotie_spannend'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_spannend'
-			"?> <?php
-			if(isset($feedback) && in_array("emotie_spannend", $emotieAr) ){ 
-			echo "checked='checked'"; 
-			} 
-			else 
-			{echo '';}
-			?> <?php echo 
-			"
-			>
-		</div>
-		<div class='formblok'>
-			<img class='formimg' src='images/emotie/emotie_verdrietig.png' alt='emotie_verdrietig'>
-			<input class='input' type='checkbox' name='emotie[]' value='emotie_verdrietig'
-			"?> <?php
-			if(isset($feedback) && in_array("emotie_verdrietig", $emotieAr) ){ 
+			if(isset($feedback) && ($lengte == '10') ){ 
 			echo "checked='checked'"; 
 			} 
 			else 
@@ -393,36 +313,116 @@
 	</div>
 	<div class='formgrootblok'>
 		<div class='formblok'>
-			<img class='formimg' src='images/genre/genre_dans.png' alt='genre_dans'>
-			<input class='input' type='checkbox' name='genre' value='genre_dans'>
+			<img class='formimg' src='images/emotie/blij.png' alt='emotie_blij'>
+			<input class='input' type='checkbox' name='emotie[]' value='blij'
+			"?> <?php
+			if(isset($feedback) && in_array("blij", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/genre/genre_feest.png' alt='genre_feest'>
-			<input class='input' type='checkbox' name='genre' value='genre_feest'>
+			<img class='formimg' src='images/emotie/bang.png' alt='emotie_bang'>
+			<input class='input' type='checkbox' name='emotie[]' value='bang'
+			"?> <?php
+			if(isset($feedback) && in_array("bang", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/genre/genre_film.png' alt='genre_film'>
-			<input class='input' type='checkbox' name='genre' value='genre_film'>
+			<img class='formimg' src='images/emotie/boos.png' alt='emotie_boos'>
+			<input class='input' type='checkbox' name='emotie[]' value='boos'
+			"?> <?php
+			if(isset($feedback) && in_array("boos", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/genre/genre_humor.png' alt='genre_humor'>
-			<input class='input' type='checkbox' name='genre' value='genre_humor'>
+			<img class='formimg' src='images/emotie/genieten.png' alt='emotie_genieten'>
+			<input class='input' type='checkbox' name='emotie[]' value='genieten'
+			"?> <?php
+			if(isset($feedback) && in_array("genieten", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/genre/genre_kunst.png' alt='genre_kunst'>
-			<input class='input' type='checkbox' name='genre' value='genre_kunst'>
+			<img class='formimg' src='images/emotie/spannend.png' alt='emotie_spannend'>
+			<input class='input' type='checkbox' name='emotie[]' value='spannend'
+			"?> <?php
+			if(isset($feedback) && in_array("spannend", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/genre/genre_muziek.png' alt='genre_muziek'>
-			<input class='input' type='checkbox' name='genre' value='genre_muziek'>
+			<img class='formimg' src='images/emotie/verdrietig.png' alt='emotie_verdrietig'>
+			<input class='input' type='checkbox' name='emotie[]' value='verdrietig'
+			"?> <?php
+			if(isset($feedback) && in_array("verdrietig", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
+	</div>
+	<div class='formgrootblok'>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/dans.png' alt='genre_dans'>
+			<input class='input' type='checkbox' name='genre' value='dans'>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/genre/genre_sport.png' alt='genre_sport'>
-			<input class='input' type='checkbox' name='genre' value='genre_sport'>
+			<img class='formimg' src='images/genre/feest.png' alt='genre_feest'>
+			<input class='input' type='checkbox' name='genre' value='feest'>
 		</div>
 		<div class='formblok'>
-			<img class='formimg' src='images/genre/genre_uitstap.png' alt='genre_uitstap'>
-			<input class='input' type='checkbox' name='genre' value='genre_uitstap'>
+			<img class='formimg' src='images/genre/film.png' alt='genre_film'>
+			<input class='input' type='checkbox' name='genre' value='film'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/humor.png' alt='genre_humor'>
+			<input class='input' type='checkbox' name='genre' value='humor'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/kunst.png' alt='genre_kunst'>
+			<input class='input' type='checkbox' name='genre' value='kunst'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/muziek.png' alt='genre_muziek'>
+			<input class='input' type='checkbox' name='genre' value='muziek'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/sport.png' alt='genre_sport'>
+			<input class='input' type='checkbox' name='genre' value='sport'>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/uitstap.png' alt='genre_uitstap'>
+			<input class='input' type='checkbox' name='genre' value='uitstap'>
 		</div>
 	</div>
 	<input name='SendPictos' id='verzendknop' value='Ok!' type='submit' />
