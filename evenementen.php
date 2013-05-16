@@ -206,13 +206,13 @@
 					}
 			}
 			else {
-				echo("<h3>" . $categorie . "&nbsp;<small>in " . $city . "</small></h3>");
+				echo("<div class='eventlist'><h3>" . $categorie . "&nbsp;<small>in " . $city . "</small></h3>");
 				echo("<ul>");
 				foreach($events as $e)
 				{
 				echo("<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>");
 				}
-				echo("</ul>");
+				echo("</ul></div>");
 			}
 		
 		?>

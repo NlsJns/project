@@ -223,8 +223,11 @@ nav {
 	padding: 10px;
 	float: left;
 }
+.returnimg {
+	width: 100%;
+}
 #content img {
-	width: 50%;
+	width: 100%;
 }
 #content h3 {
 	font-size: 2.6em;
@@ -233,25 +236,118 @@ nav {
 #content small {
 	font-size: 0.6em;
 }
-#content ul {
-	
-}
 #content ul li {
-	height: 18px;
+}
+.eventlist {
+}
+.eventlist ul li {
+	height: auto;
+	margin-bottom: 5px;
+	display: block;
 	font-size: 1.4em;
+	line-height: 20px;
+	background-color: #d1d1d1;
+	width: 42%;
+	padding: 2%;
+	float: left;
+	margin: 2% 4% 2% 0;
+}
+.eventlist ul li a:link, .eventlist ul li a:visited, .eventlist ul li a:hover, .eventlist ul li a:active {
+	color: black;
+	text-decoration: none;
+}
+.eventlist ul li a:hover {
+	color: #2a9e4b;
+	text-decoration: underline;
 }
 .formgrootblok {
 	float: left;
 	clear: both;
 }
 .formblok {
-	width: 80px;
+	width: 90px;
 	float: left;
-	margin-right: 15px;
+	margin-left: 13px;
+	margin-bottom: 15px;
+}
+.inhoudevent {
+	width: 55%;
+	margin-right: 3%;
+	float: left;
+	margin-bottom: 30px;	
+}
+.inhoudevent p {
+	font-size: 1.4em;
+	line-height: 18px;
+}
+.fotoevent {
+	width: 42%;
+	float: left;
+	margin-bottom: -130px;
+}
+.samenvatting {
+	width: 100%;
+}
+.samenvatting h2 {
+	margin-bottom: 15px;
+	clear: both;
+	font-size: 1.7em;
+	color: #990000;
+}
+.samenvatting p {
+	height: 90px;
+	line-height: 90px;
+	float: left;
+	width: 70px;
+	font-size: 1.2em;
+}
+.samenvattinggenre, .samenvattinglengte, .samenvattingemotie {
+	width: 100%;
+	float: left;
+	clear: both;
+}
+.formuliernopicto {
+	clear: both;
+}
+.formuliernopicto h2 {
+	width: 57%;
+	display: block;
+	margin-bottom: 15px;
+	clear: both;
+	font-size: 1.5em;
+	color: #990000;
+}
+#submitnopicto, #submitnewpicto  {
+	width: 52%;
+	display: block;
+	height: 32px;
+	background-color: #990000;
+	color: white;
+	margin-top: 15px;
+	font-size: 1.3em;
+	border: none;
+}
+#submitnewpicto {
+	width: 100%;
+}
+.formgrootblok {
+	background-color: #d1d1d1;
+	margin-bottom: 10px;
+	width: 100%;
+}
+.formgrootblok p {
+	font-size: 1.4em;
+	margin-left: 13px;
+	margin-bottom: 5px;
+	margin-top: 13px;
+	color: #990000;
 }
 .input {
 	width: 14px;
-	margin-left: 33px;
+	margin-left: 39px;
+}
+#content {
+	margin-bottom: 30px;
 }
 #footer{
   background-color: #990000;

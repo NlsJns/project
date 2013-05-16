@@ -110,6 +110,7 @@
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/sticky.css">
 </head>
 
 <!-- /////////         END HEAD      ///////// -->    
@@ -117,7 +118,7 @@
 <!-- /////////         START BODY      ///////// -->    
 
 <body>
-
+	<div id="wrap">
 <!-- /////////         START TOP HEADER      ///////// -->    
 
 	<div class="top">
@@ -212,32 +213,48 @@
 		<!-- /////////         START CONTENT      ///////// -->    
 
 		<div id="content">
+			<div class="inhoudevent">
 			<h3><?php echo $event->event->eventdetails->eventdetail->title; ?> <small>in <?php echo($city) ?></small></h3>
       		<p><?php echo $event->event->eventdetails->eventdetail->shortdescription; ?></p>
+			</div>
+			<div class="fotoevent">
 			<?php 
-
 			$images = $event->event->eventdetails->eventdetail->media->file; 
 			foreach($images as $image)
 			{
 				if($image->mediatype == "photo")
 				{
-					echo "<img src='" . $image->hlink . "' alt='" . $event->event->eventdetails->eventdetail->title . "'  />";	
+					echo "<div class='returnimg'><img src='" . $image->hlink . "' alt='" . $event->event->eventdetails->eventdetail->title . "'  /></div>";	
 				}
 			}
 
 			?>
-			
+			</div>
 			<?php
 
  /////////         CHECK FOR PICTOS      ///////// 
 
 				if(count($pictos) > 0) {
 					foreach($pictos as $p){
-						echo $p['cdbid'];
-						echo htmlspecialchars($p['lengte']);
+					$emo = $p['emotie'];
+					$emoAr = explode(";", $emo);			
+					$gen = $p['genre'];
+					$genAr = explode(";", $gen);
+					echo "<div class='samenvatting'><h2>Samenvatting in Pictos:</h2>";			
+				echo "<div class='samenvattinglengte'><p>Lengte:</p><div class='formblok'><img src='images/lengte/" . $p['lengte'] . ".png' /></div></div>";
+				echo "<div class='samenvattingemotie'><p>Emotie:</p>";
+						foreach($emoAr as $e){
+				echo "<div class='formblok'><img src='images/emotie/" . $e . ".png' /></div>";
+						}
+				echo "</div>";
+				echo "<div class='samenvattinggenre'><p>Genre:</p>";
+						foreach($genAr as $g){
+				echo "<div class='formblok'><img src='images/genre/" . $g . ".png' /></div>";
+						}
+				echo "</div>";
+
 					}
 				}
-
  /////////         GENERATE PICTOS-FORM IF- COMPOSE-BUTTON.CLICK      ///////// 
 
 
@@ -245,6 +262,7 @@
 					echo "
 						<form action='"?> <?php echo $_SERVER['REQUEST_URI']; ?> <?php echo "' method='post'>
 	<div class='formgrootblok'>
+		<p>Lengte:</p>
 		<div class='formblok'>
 			<img class='formimg' src='images/lengte/1.png' alt='lengte_1'>
 			<input class='input' type='radio' name='lengte' value='1'
@@ -312,6 +330,7 @@
 		</div>
 	</div>
 	<div class='formgrootblok'>
+		<p>Emoties:</p>
 		<div class='formblok'>
 			<img class='formimg' src='images/emotie/blij.png' alt='emotie_blij'>
 			<input class='input' type='checkbox' name='emotie[]' value='blij'
@@ -392,6 +411,7 @@
 		</div>
 	</div>
 	<div class='formgrootblok'>
+		<p>Genres:</p>
 		<div class='formblok'>
 			<img class='formimg' src='images/genre/dans.png' alt='genre_dans'>
 			<input class='input' type='checkbox' name='genre' value='dans'>
@@ -425,7 +445,7 @@
 			<input class='input' type='checkbox' name='genre' value='uitstap'>
 		</div>
 	</div>
-	<input name='SendPictos' id='verzendknop' value='Ok!' type='submit' />
+	<input name='SendPictos' id='submitnewpicto' value='Ok!' type='submit' />
 	</form>					
 
 					";
@@ -434,11 +454,13 @@
  /////////         GENERATE COMPOSE-BUTTON IF- NO PICTOS      ///////// 
 
 				else {
-					echo "			
+					echo "	
+						<div class='formuliernopicto'>		
 						<form action='"?> <?php echo $_SERVER['REQUEST_URI']; ?> <?php echo "' method='post'>
-						<label>Voor dit evenement bestaat nog geen picto-samenvatting.</label>
-						<input name='verzendknop' id='verzendknop' value='Ok!' type='submit' />
+						<h2>Voor dit evenement bestaat nog geen picto-samenvatting. Wil jij ons helpen door nu een samenvatting te maken?</h2>
+						<input name='verzendknop' id='submitnopicto' value='Ja, graag!' type='submit' />
 						</form>
+						</div
 					";
 				}
 			
@@ -452,17 +474,17 @@
 		
 		<!-- /////////         END CONTENT      ///////// -->  
 		  
+
+	</div>
+	</div>
+	<!-- /////////         END CONTAINER      ///////// -->    
+		
 		<!-- /////////         START FOOTER      ///////// -->    
 
 		<div id="footer">
 		</div>
 
 		<!-- /////////         END FOOTER      ///////// -->    
-
-	</div>
-
-	<!-- /////////         END CONTAINER      ///////// -->    
-
 </body>
 
 <!-- /////////         END BODY      ///////// -->    
