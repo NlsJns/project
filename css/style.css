@@ -253,16 +253,12 @@ nav {
 	width: 14px;
 	margin-left: 33px;
 }
-#footer {
-	width: 100%;
-	margin: 0 auto;
-	display: block;
-	height: 100px;
-	clear: both;
+#footer{
+  background-color: #990000;
 }
 .inli {
 	padding-left: 15px;
 }
-.icon-angle-down {
+.icon-angle-down, .icon-angle-up {
 	font-size: 1.2em;
 }
