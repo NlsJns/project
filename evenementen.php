@@ -185,33 +185,52 @@
 					$eventLengte = $_GET['lengte'];
 					$p = new Picto();
 					$pictos = $p->GetAllFromLengte($eventLengte);
-					echo("<div class='eventlist'><h3>Lengte: " . $eventLengte . " uur&nbsp;<small>in " . $city . "</small></h3>");
-					foreach($events as $e)
-					{
-						if(in_array($e->cdbid,  $pictos)) {
-							echo "<ul><li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li></ul></div>";
+						echo("<div class='eventlist'><h3>Lengte: " . $eventLengte . " uur&nbsp;<small>in " . $city . "</small></h3>");
+						echo("<ul>");
+						$teller = 0;
+						foreach($events as $e)
+						{
+							if(in_array($e->cdbid,  $pictos)) {
+								echo "<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
+								$teller = $teller + 1;
+							}
 						}
-					}
+						if($teller == 0) {
+							echo "<p class='noeventsfound'>Sorry, en zijn geen evenementen met deze lengte gevonden in " . $city . ". Probeer misschien een andere categorie of locatie?</p>";
+						}
+					echo("</ul></div>");
 			}
 			else if(isset($_GET['emotie'])) {
 					$eventEmotie = $_GET['emotie'];
 					$p = new Picto();
 					$pictos = $p->GetAllFromEmotie($eventEmotie);
 					echo("<div class='eventlist'><h3>Emotie: " . $eventEmotie . "&nbsp;<small>in " . $city . "</small></h3>");
+					echo("<ul>");
+						$teller = 0;
 					foreach($events as $e)
 					{
 						if(in_array($e->cdbid,  $pictos)) {
-							echo "<ul><li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li></ul></div>";
+							echo "<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
+								$teller = $teller + 1;
 						}
 					}
+						if($teller == 0) {
+							echo "<p class='noeventsfound'>Sorry, en zijn geen evenementen met deze emotie gevonden in " . $city . ". Probeer misschien een andere categorie of locatie?</p>";
+						}
+					echo("</ul></div>");
 			}
 			else {
 				echo("<div class='eventlist'><h3>" . $categorie . "&nbsp;<small>in " . $city . "</small></h3>");
 				echo("<ul>");
+				$teller = 0;
 				foreach($events as $e)
 				{
 				echo("<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>");
+								$teller = $teller + 1;
 				}
+						if($teller == 0) {
+							echo "<p class='noeventsfound'>Sorry, en zijn geen evenementen in deze categorie gevonden in " . $city . ". Probeer misschien een andere categorie of locatie?</p>";
+						}
 				echo("</ul></div>");
 			}
 		
