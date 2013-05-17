@@ -185,11 +185,11 @@
 					$eventLengte = $_GET['lengte'];
 					$p = new Picto();
 					$pictos = $p->GetAllFromLengte($eventLengte);
-					echo("<h3>Lengte: " . $eventLengte . " uur&nbsp;<small>in " . $city . "</small></h3>");
+					echo("<div class='eventlist'><h3>Lengte: " . $eventLengte . " uur&nbsp;<small>in " . $city . "</small></h3>");
 					foreach($events as $e)
 					{
 						if(in_array($e->cdbid,  $pictos)) {
-							echo "<ul><li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li></ul>";
+							echo "<ul><li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li></ul></div>";
 						}
 					}
 			}
@@ -197,11 +197,11 @@
 					$eventEmotie = $_GET['emotie'];
 					$p = new Picto();
 					$pictos = $p->GetAllFromEmotie($eventEmotie);
-					echo("<h3>Emotie: " . $eventEmotie . "&nbsp;<small>in " . $city . "</small></h3>");
+					echo("<div class='eventlist'><h3>Emotie: " . $eventEmotie . "&nbsp;<small>in " . $city . "</small></h3>");
 					foreach($events as $e)
 					{
 						if(in_array($e->cdbid,  $pictos)) {
-							echo "<ul><li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li></ul>";
+							echo "<ul><li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li></ul></div>";
 						}
 					}
 			}
