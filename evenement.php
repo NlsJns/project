@@ -301,6 +301,16 @@
 			?>
 			<?php 
 			$images = $event->event->eventdetails->eventdetail->media->file;
+			if(is_array($images)) {
+				foreach($images as $image) {
+				if($image->mediatype == "photo")
+				{
+					echo "<div class='returnimg'><img src='" . $image->hlink . "' alt='" . $event->event->eventdetails->eventdetail->title . "'  /></div>";	
+				}
+				}
+			}
+			else {
+			
 			if($event->event->eventdetails->eventdetail->media->file->mediatype != "photo") {
 			}
 			else {
@@ -310,7 +320,7 @@
 				{
 					echo "<div class='returnimg'><img src='" . $image->hlink . "' alt='" . $event->event->eventdetails->eventdetail->title . "'  /></div>";	
 				}
-				else echo("test");
+			}
 			}
 			}
 

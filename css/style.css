@@ -339,6 +339,8 @@ nav {
 }
 #submitnewpicto {
 	width: 100%;
+	float: left;
+	clear: both;
 }
 .formgrootblok {
 	background-color: #d1d1d1;
