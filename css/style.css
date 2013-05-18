@@ -285,10 +285,15 @@ nav {
 	float: left;
 	margin-bottom: -130px;
 }
+.fotoevent2 {
+	width: 42%;
+	float: left;
+	margin-bottom: -20px;
+}
 .samenvatting {
 	width: 100%;
 }
-.samenvatting h2 {
+.samenvatting h2, #formgrootblokdiv h2 {
 	margin-bottom: 15px;
 	clear: both;
 	font-size: 1.7em;
@@ -334,6 +339,8 @@ nav {
 	background-color: #d1d1d1;
 	margin-bottom: 10px;
 	width: 100%;
+}
+.formgrootblokdiv {
 }
 .formgrootblok p {
 	font-size: 1.4em;

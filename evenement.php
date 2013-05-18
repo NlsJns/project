@@ -222,8 +222,18 @@
 			<div class="inhoudevent">
 			<h3><?php echo $event->event->eventdetails->eventdetail->title; ?> <small>in <?php echo($city) ?></small></h3>
       		<p><?php echo $event->event->eventdetails->eventdetail->shortdescription; ?></p>
+      		<p><?php echo $event->event->calendar->timestamps->timestamp->date; ?></p>
+      		<p><?php echo $event->event->calendar->timestamps->timestamp->timestart; ?></p>
+      		<p><?php echo $event->event->calendar->timestamps->timestamp->timeend; ?></p>
 			</div>
-			<div class="fotoevent">
+			<?php if(isset($_POST['verzendknop'])) {
+				echo("<div class='fotoevent2'>");
+			}
+			else {
+				echo("<div class='fotoevent'>");
+			}				
+				
+			?>
 			<?php 
 			$images = $event->event->eventdetails->eventdetail->media->file; 
 			foreach($images as $image)
@@ -266,6 +276,8 @@
 
 				else if(isset($_POST['verzendknop']) || isset($feedback)) {
 					echo "
+						<div id='formgrootblokdiv'>
+						<h2>Maak een samenvatting:</h2>
 						<form action='"?> <?php echo $_SERVER['REQUEST_URI']; ?> <?php echo "' method='post'>
 	<div class='formgrootblok'>
 		<p>Lengte:</p>
@@ -524,7 +536,8 @@
 		</div>
 	</div>
 	<input name='SendPictos' id='submitnewpicto' value='Ok!' type='submit' />
-	</form>					
+	</form>	
+	</div>				
 
 					";
 				}
