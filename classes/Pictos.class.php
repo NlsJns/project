@@ -100,15 +100,6 @@ class Picto
 	{
 		$conn = new mysqli($this->db_server, $this->db_user, $this->db_password, $this->db_database);
 		$conn->set_charset("utf8");
-		if ($lengte == "error") {
-			throw new Exception('Gelieve een picto voor de lengte te selecteren');
-		}
-		if ($emotie == "error") {
-			throw new Exception('Gelieve een picto voor de emotie te selecteren');
-		}
-		if ($genre == "error") {
-			throw new Exception('Gelieve een picto voor het genre te selecteren');
-		}
 		$query = "INSERT INTO `tblPictos` (`cdbid`, `lengte`, `emotie`, `genre`)
 VALUES
 	('".$conn->real_escape_string($eventId)."','".$conn->real_escape_string($lengte)."','".$conn->real_escape_string($emotie)."','".$conn->real_escape_string($genre)."');";

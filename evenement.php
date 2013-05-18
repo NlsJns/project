@@ -20,7 +20,7 @@
 			$lengte = $_POST['lengte'];
 		}
 		else {
-			$lengte = "error";
+			$lengte = "n";
 		}
 		if(isset($_POST['emotie'])) {
 		$emoties ='';
@@ -332,6 +332,13 @@
 
 				if(count($pictos) > 0) {
 					foreach($pictos as $p){
+					$len = $p['lengte'];
+					if ($len == "n") {
+						$lenAr = 1;
+					}
+					else {
+					$lenAr = explode(";", $len);
+					}			
 					$emo = $p['emotie'];
 					if ($emo == "n") {
 						$gemoAr = 1;
@@ -347,8 +354,20 @@
 					$genAr = explode(";", $gen);
 					}
 					echo "<div class='samenvatting'><h2>Samenvatting in Pictos:</h2>";			
-				echo "<div class='samenvattinglengte'><p>Lengte:</p><div class='formblok'><img src='images/lengte/" . $p['lengte'] . ".png' /></div></div>";
-					if ($genAr == 1) {
+				
+					if ($lenAr == 1) {
+						echo "<div>";
+					}
+					else {				
+				echo "<div class='samenvattinglengte'><p>Lengte:</p>";
+						foreach($lenAr as $e){
+				echo "<div class='formblok'><img src='images/lengte/" . $e . ".png' /></div>";
+						}}
+				echo "</div>";
+
+				
+				
+					if ($emoAr == 1) {
 						echo "<div>";
 					}
 					else {				
@@ -357,6 +376,9 @@
 				echo "<div class='formblok'><img src='images/emotie/" . $e . ".png' /></div>";
 						}}
 				echo "</div>";
+				
+				
+				
 					if ($genAr == 1) {
 						echo "<div>";
 					}
@@ -366,8 +388,9 @@
 					echo "<div class='formblok'><img src='images/genre/" . $g . ".png' /></div>";}
 						}
 				echo "</div>";
-
 					}
+					
+					
 				}
  /////////         GENERATE PICTOS-FORM IF- COMPOSE-BUTTON.CLICK      ///////// 
 
@@ -419,6 +442,19 @@
 			>
 		</div>
 		<div class='formblok'>
+			<img class='formimg' src='images/lengte/4.png' alt='lengte_4'>
+			<input class='input' type='radio' name='lengte' value='4'
+			"?> <?php
+			if(isset($feedback) && ($lengte == '4') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
+		<div class='formblok'>
 			<img class='formimg' src='images/lengte/5.png' alt='lengte_5'>
 			<input class='input' type='radio' name='lengte' value='5'
 			"?> <?php
@@ -432,10 +468,62 @@
 			>
 		</div>
 		<div class='formblok'>
+			<img class='formimg' src='images/lengte/6.png' alt='lengte_6'>
+			<input class='input' type='radio' name='lengte' value='6'
+			"?> <?php
+			if(isset($feedback) && ($lengte == '6') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/lengte/8.png' alt='lengte_8'>
+			<input class='input' type='radio' name='lengte' value='8'
+			"?> <?php
+			if(isset($feedback) && ($lengte == '8') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
+		<div class='formblok'>
 			<img class='formimg' src='images/lengte/10.png' alt='lengte_10'>
 			<input class='input' type='radio' name='lengte' value='10'
 			"?> <?php
 			if(isset($feedback) && ($lengte == '10') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/lengte/12.png' alt='lengte_12'>
+			<input class='input' type='radio' name='lengte' value='12'
+			"?> <?php
+			if(isset($feedback) && ($lengte == '12') ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/lengte/0.png' alt='lengte_?'>
+			<input class='input' type='radio' name='lengte' value='0'
+			"?> <?php
+			if(isset($feedback) && ($lengte == '0') ){ 
 			echo "checked='checked'"; 
 			} 
 			else 
