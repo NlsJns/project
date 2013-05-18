@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+	$(".steden").click(function(){
+			$("#arthurside").animate({"background-position-y": "-56px"}, "slow");
+	});
+	$(".option").click(function(){
+			$("#arthurside").animate({"background-position-y": "-10px"}, "slow");
+	});
+
+
 	function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {

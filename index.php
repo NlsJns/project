@@ -30,6 +30,9 @@
 
 	<link rel="stylesheet" href="css/clear.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 </head>
 
@@ -42,7 +45,7 @@
 
 	<div class="top">
 		<div id="tekstarthur">
-			<div id="tekstballon">Hoi, Ik ben Arthur, en ik help je zoeken naar cultuur!<br><br>
+			<div id="tekstballon">Hoi, Ik ben Arthuur, en ik help je zoeken naar cultuur!<br><br>
 				Begin met een gemeente of een stad in te vullen!
 			</div>
 		</div>
@@ -61,7 +64,7 @@
 			<label id="labelzoek">Waar wil je op zoek naar een evenement?</label>
 			<input class="field steden" type="text" name="Steden" placeholder="vb. Haacht">
 			<label id="labelleeftijd">Voor welke leeftijden zoek je een evenement?</label>
-			<select class="field" name="Leeftijd">
+			<select class="field option" name="Leeftijd">
 				<option value="0-120">Alle leeftijden</option>
 				<option value="0-4">0 tot 4 jaar</option>
 				<option value="4-8">4 tot 8 jaar</option>
