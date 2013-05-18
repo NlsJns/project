@@ -30,7 +30,7 @@
 		$emotie = substr($emoties,0,-1);
 		}
 		else {
-			$emotie = "error";
+			$emotie = "n";
 		}
 		if(isset($_POST['genre'])) {
 		$ingenre = $_POST['genre'];
@@ -41,7 +41,7 @@
 				$genre = substr($genres,0,-1);
 		}
 		else {
-			$genre = "error";
+			$genre = "n";
 		}
 		
 /////////////    TRY INSERT IN DATABASE    /////////////
@@ -222,9 +222,74 @@
 			<div class="inhoudevent">
 			<h3><?php echo $event->event->eventdetails->eventdetail->title; ?> <small>in <?php echo($city) ?></small></h3>
       		<p><?php echo $event->event->eventdetails->eventdetail->shortdescription; ?></p>
-      		<p><?php echo $event->event->calendar->timestamps->timestamp->date; ?></p>
-      		<p><?php echo $event->event->calendar->timestamps->timestamp->timestart; ?></p>
-      		<p><?php echo $event->event->calendar->timestamps->timestamp->timeend; ?></p>
+      		<?php
+	      	if(isset($event->event->calendar->timestamps->timestamp->date) &&
+	      	isset($event->event->calendar->timestamps->timestamp->timestart) &&
+	      	isset($event->event->calendar->timestamps->timestamp->timeend)
+	      	) {
+      		echo "<h2>Wanneer?</h2>";
+	      	}
+      		?>
+      		<p><?php 
+      		if(isset($event->event->calendar->timestamps->timestamp->date)) {
+      		$loaddate = $event->event->calendar->timestamps->timestamp->date;
+	      	$loaddateAr = explode("-", $loaddate);
+	      	echo($loaddateAr[2]);
+	      	echo(" ");
+	      	$loadmonth = $loaddateAr[1];
+	      		switch ($loadmonth) {
+		      		case "01":
+		      		echo "januari";
+		      		break;
+		      		case "02":
+		      		echo "februari";
+		      		break;
+		      		case "03":
+		      		echo "maart";
+		      		break;
+		      		case "04":
+		      		echo "april";
+		      		break;
+		      		case "05":
+		      		echo "mei";
+		      		break;
+		      		case "06":
+		      		echo "juni";
+		      		break;
+		      		case "07":
+		      		echo "juli";
+		      		break;
+		      		case "08":
+		      		echo "augustus";
+		      		break;
+		      		case "09":
+		      		echo "september";
+		      		break;
+		      		case "10":
+		      		echo "oktober";
+		      		break;
+		      		case "11":
+		      		echo "november";
+		      		break;
+		      		case "12":
+		      		echo "december";
+		      		break;
+		    }
+	      	echo(" ");
+	      	echo($loaddateAr[0]);
+	      	}
+      		?></p>
+      		<p><?php
+      		if(isset($event->event->calendar->timestamps->timestamp->timestart)) {
+	      	$loadtimestart = $event->event->calendar->timestamps->timestamp->timestart;
+	      	$timestart = substr($loadtimestart,0,-3);
+      		 echo "Start: " . $timestart; } ?>
+      		 </p>
+      		<p><?php 
+      		if(isset($event->event->calendar->timestamps->timestamp->timeend)) {
+	      	$loadtimeend = $event->event->calendar->timestamps->timestamp->timeend;
+	      	$timeend = substr($loadtimeend,0,-3);
+      		 echo "Einde: " . $timeend; } ?>
 			</div>
 			<?php if(isset($_POST['verzendknop'])) {
 				echo("<div class='fotoevent2'>");
@@ -235,13 +300,18 @@
 				
 			?>
 			<?php 
-			$images = $event->event->eventdetails->eventdetail->media->file; 
+			$images = $event->event->eventdetails->eventdetail->media->file;
+			if($event->event->eventdetails->eventdetail->media->file->mediatype != "photo") {
+			}
+			else {
 			foreach($images as $image)
 			{
 				if($image->mediatype == "photo")
 				{
 					echo "<div class='returnimg'><img src='" . $image->hlink . "' alt='" . $event->event->eventdetails->eventdetail->title . "'  /></div>";	
 				}
+				else echo("test");
+			}
 			}
 
 			?>
@@ -253,19 +323,37 @@
 				if(count($pictos) > 0) {
 					foreach($pictos as $p){
 					$emo = $p['emotie'];
-					$emoAr = explode(";", $emo);			
+					if ($emo == "n") {
+						$gemoAr = 1;
+					}
+					else {
+					$emoAr = explode(";", $emo);
+					}			
 					$gen = $p['genre'];
+					if ($gen == "n") {
+						$genAr = 1;
+					}
+					else {
 					$genAr = explode(";", $gen);
+					}
 					echo "<div class='samenvatting'><h2>Samenvatting in Pictos:</h2>";			
 				echo "<div class='samenvattinglengte'><p>Lengte:</p><div class='formblok'><img src='images/lengte/" . $p['lengte'] . ".png' /></div></div>";
+					if ($genAr == 1) {
+						echo "<div>";
+					}
+					else {				
 				echo "<div class='samenvattingemotie'><p>Emotie:</p>";
 						foreach($emoAr as $e){
 				echo "<div class='formblok'><img src='images/emotie/" . $e . ".png' /></div>";
-						}
+						}}
 				echo "</div>";
-				echo "<div class='samenvattinggenre'><p>Genre:</p>";
-						foreach($genAr as $g){
-				echo "<div class='formblok'><img src='images/genre/" . $g . ".png' /></div>";
+					if ($genAr == 1) {
+						echo "<div>";
+					}
+					else {
+					echo "<div class='samenvattinggenre'><p>Genre:</p>";
+					foreach($genAr as $g){
+					echo "<div class='formblok'><img src='images/genre/" . $g . ".png' /></div>";}
 						}
 				echo "</div>";
 

@@ -276,6 +276,11 @@ nav {
 	float: left;
 	margin-bottom: 30px;	
 }
+.inhoudevent h2 {
+	font-size: 1.6em;
+	margin-top: 10px;
+	font-weight: bold;
+}
 .inhoudevent p {
 	font-size: 1.4em;
 	line-height: 18px;
