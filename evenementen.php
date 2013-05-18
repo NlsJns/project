@@ -219,6 +219,25 @@
 						}
 					echo("</ul></div>");
 			}
+			else if(isset($_GET['genre'])) {
+					$eventGenre = $_GET['genre'];
+					$p = new Picto();
+					$pictos = $p->GetAllFromGenre($eventGenre);
+					echo("<div class='eventlist'><h3>Genre: " . $eventGenre . "&nbsp;<small>in " . $city . "</small></h3>");
+					echo("<ul>");
+						$teller = 0;
+					foreach($events as $e)
+					{
+						if(in_array($e->cdbid,  $pictos)) {
+							echo "<li><a href='evenement.php?city=" . $city . "&amp;age=" . $age . "&amp;category=" . $category . "&amp;id=" . $e->cdbid . "'>" . $e->title . "</a></li>";
+								$teller = $teller + 1;
+						}
+					}
+						if($teller == 0) {
+							echo "<p class='noeventsfound'>Sorry, en zijn geen evenementen met dit genre gevonden in " . $city . ". Probeer misschien een andere categorie of locatie?</p>";
+						}
+					echo("</ul></div>");
+			}
 			else {
 				echo("<div class='eventlist'><h3>" . $categorie . "&nbsp;<small>in " . $city . "</small></h3>");
 				echo("<ul>");

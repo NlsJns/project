@@ -71,6 +71,28 @@ class Picto
 		return($r_array);
 	}
 
+/////////////    FUNCTION TO GET EVENTS WITH SAME 'GENRE'    /////////////
+
+	public function GetAllFromGenre($eventGenre)
+	{
+		$conn = new mysqli($this->db_server, $this->db_user, $this->db_password, $this->db_database);
+		$conn->set_charset("utf8");
+		$query = "select cdbid from tblPictos where genre LIKE '%".$conn->real_escape_string($eventGenre)."%';";
+		$result = $conn->query($query);
+		$result_array=array();
+
+		while($row = $result->fetch_array())
+		{
+			$result_array[] = $row;
+		}
+		$r_array=array();
+		foreach($result_array as $r) {
+			$r_array[] = $r['cdbid'];
+			
+		}
+		return($r_array);
+	}
+
 	
 /////////////    FUNCTION TO SAVE PICTOS    /////////////
 

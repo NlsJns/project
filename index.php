@@ -3,10 +3,22 @@
 		if(!empty($_POST['Steden'])) {
 			$city = $_POST['Steden'];
 			$age = $_POST['Leeftijd'];
-			header('Location: evenementen.php?city=' . $city . '&age=' . $age );
+			$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city . "&format=json";
+			$events = json_decode(file_get_contents($url));
+			$eventen = "";
+			foreach($events as $e)
+			{
+				$eventen = "input";
+			}
+			if($eventen == "input") {
+				header('Location: evenementen.php?city=' . $city .'&age=' . $age);
+			}
+			else {
+				$errorcity = "Ben je zeker dat je een juiste stad of gemeente invude? <br><br>We vinden er geen evenementen terug!";
+			}
 		}
 		else {
-			$nocity = "<div id='nocity'>Gelieve een stad in te vullen aub!</div>";
+			$nocity = "Oeps, je hebt nog geen stad of gemeente ingevuld.<br><br> Doe je dat even?";
 		}
 	}
 
@@ -45,9 +57,27 @@
 
 	<div class="top">
 		<div id="tekstarthur">
-			<div id="tekstballon">Hoi, Ik ben Arthuur, en ik help je zoeken naar cultuur!<br><br>
-				Begin met een gemeente of een stad in te vullen!
+		
+		
+			<div id="tekstballon">
+			<?php
+			if(isset($nocity)) {
+				echo($nocity);
+			}
+			else if(isset($errorcity)) {
+				echo($errorcity);
+			}
+			else {
+				echo("
+			Hoi, Ik ben Arthuur.<br> Ik help je zoeken naar cultuur!<br><br>
+			Begin met een gemeente of een stad in te vullen!
+				");
+			}
+			?>
 			</div>
+			
+			
+			
 		</div>
 		<div id="arthur"></div>
 		<div id="arthurcontainer">
@@ -74,13 +104,7 @@
 			</select>
 			<input name="submitindex" id="verzendknop" value="Ok!" type="submit" />
         </form>
-    </div>
-    <?php 
-	    if(isset($nocity)) {
-		    echo($nocity);
-	    }
-    ?>
-    
+    </div>    
 <!-- /////////         END BOTTOM FORM      ///////// -->    
 
 </body>

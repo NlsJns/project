@@ -2,9 +2,18 @@ $(document).ready(function(){
 
 	$(".steden").click(function(){
 			$("#arthurside").animate({"background-position-y": "-56px"}, "slow");
+			$("#tekstballon").html('Zodra je een stad of gemeente ingevuld hebt, mag je ook nog een leeftijdscategorie kiezen!');
 	});
 	$(".option").click(function(){
+			var stedeninput = $(".steden").val()
+			if (stedeninput == "") {
+			$("#tekstballon").html('Je hebt nog geen stad ingevuld. Doe je dat nog even?');
+			$("#arthurside").animate({"background-position-y": "-121px"}, "slow");
+			}
+			else {
 			$("#arthurside").animate({"background-position-y": "-10px"}, "slow");
+			$("#tekstballon").html('Je bent klaar! <br><br>Klik nu maar op &#34;Ok&#34;!');
+			}
 	});
 
 
@@ -25,6 +34,7 @@ $(document).ready(function(){
 	   	$(".Cursus").hide();
 	   	$(".Emoties").hide();
 	   	$(".Lengte").hide();
+	   	$(".Genre").hide();
 	if(subnav == "evenementen") {
 	   	$(".Evenementen").show();
 	   	var inputdiv = "#EvenementenJS"
@@ -83,6 +93,17 @@ $(document).ready(function(){
 	if(subnav == "lengte") {
 	   	$(".Lengte").show();
 	   	var inputdiv = "#LengteJS"
+		var inputclass = $(inputdiv).find( 'i').attr('class');
+		if (inputclass == 'icon-angle-down') {
+			$(inputdiv).find( 'i').removeClass('icon-angle-down').addClass('icon-angle-up');
+		}
+		else {
+			$(inputdiv).find( 'i').removeClass('icon-angle-up').addClass('icon-angle-down');
+		}
+	}
+	if(subnav == "genre") {
+	   	$(".Genre").show();
+	   	var inputdiv = "#GenreJS"
 		var inputclass = $(inputdiv).find( 'i').attr('class');
 		if (inputclass == 'icon-angle-down') {
 			$(inputdiv).find( 'i').removeClass('icon-angle-down').addClass('icon-angle-up');
@@ -170,6 +191,16 @@ $(document).ready(function(){
 				} 
 			else {
 				$(".Lengte").slideUp();
+			}
+		});
+		
+		$("#GenreJS").click(function(){
+			event.preventDefault();			
+			if ($(".Genre").is(":hidden")) {
+				$(".Genre").slideDown();
+				} 
+			else {
+				$(".Genre").slideUp();
 			}
 		});
 
