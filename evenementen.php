@@ -271,7 +271,8 @@
 				Website: <a href="http://www.nlsjns.be">NlsJns</a>
 				</div>
 				<div id="right">
-				<a href="#">Een probleem melden.</a>
+				<a href="#">Een probleem melden.</a><br>
+				<a href="#">Over 'Arthuur'.</a>
 				</div>
 			</footer>
 		</div>
