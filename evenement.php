@@ -404,6 +404,7 @@
 	<div class='formgrootblok'>
 		<p>Lengte:</p>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/1.png' alt='lengte_1'>
 			<input class='input' type='radio' name='lengte' value='1'
 			"?> <?php
@@ -415,8 +416,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/2.png' alt='lengte2'>
 			<input class='input' type='radio' name='lengte' value='2'
 			"?> <?php
@@ -428,8 +431,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/3.png' alt='lengte_3'>
 			<input class='input' type='radio' name='lengte' value='3'
 			"?> <?php
@@ -441,8 +446,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/4.png' alt='lengte_4'>
 			<input class='input' type='radio' name='lengte' value='4'
 			"?> <?php
@@ -454,8 +461,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/5.png' alt='lengte_5'>
 			<input class='input' type='radio' name='lengte' value='5'
 			"?> <?php
@@ -467,8 +476,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/6.png' alt='lengte_6'>
 			<input class='input' type='radio' name='lengte' value='6'
 			"?> <?php
@@ -480,8 +491,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/8.png' alt='lengte_8'>
 			<input class='input' type='radio' name='lengte' value='8'
 			"?> <?php
@@ -493,8 +506,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/10.png' alt='lengte_10'>
 			<input class='input' type='radio' name='lengte' value='10'
 			"?> <?php
@@ -506,8 +521,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/12.png' alt='lengte_12'>
 			<input class='input' type='radio' name='lengte' value='12'
 			"?> <?php
@@ -519,8 +536,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/lengte/0.png' alt='lengte_?'>
 			<input class='input' type='radio' name='lengte' value='0'
 			"?> <?php
@@ -532,11 +551,13 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 	</div>
 	<div class='formgrootblok'>
 		<p>Emoties:</p>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/emotie/blij.png' alt='emotie_blij'>
 			<input class='input' type='checkbox' name='emotie[]' value='blij'
 			"?> <?php
@@ -548,8 +569,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/emotie/bang.png' alt='emotie_bang'>
 			<input class='input' type='checkbox' name='emotie[]' value='bang'
 			"?> <?php
@@ -561,8 +584,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/emotie/boos.png' alt='emotie_boos'>
 			<input class='input' type='checkbox' name='emotie[]' value='boos'
 			"?> <?php
@@ -574,8 +599,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/emotie/genieten.png' alt='emotie_genieten'>
 			<input class='input' type='checkbox' name='emotie[]' value='genieten'
 			"?> <?php
@@ -587,8 +614,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/emotie/spannend.png' alt='emotie_spannend'>
 			<input class='input' type='checkbox' name='emotie[]' value='spannend'
 			"?> <?php
@@ -600,8 +629,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/emotie/verdrietig.png' alt='emotie_verdrietig'>
 			<input class='input' type='checkbox' name='emotie[]' value='verdrietig'
 			"?> <?php
@@ -613,8 +644,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/emotie/verbaasd.png' alt='emotie_verbaasd'>
 			<input class='input' type='checkbox' name='emotie[]' value='verbaasd'
 			"?> <?php
@@ -626,8 +659,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/emotie/juichen.png' alt='emotie_juichen'>
 			<input class='input' type='checkbox' name='emotie[]' value='juichen'
 			"?> <?php
@@ -639,11 +674,13 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 	</div>
 	<div class='formgrootblok'>
 		<p>Genres:</p>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/dans.png' alt='genre_dans'>
 			<input class='input' type='checkbox' name='genre[]' value='dans'
 			"?> <?php
@@ -655,8 +692,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/feest.png' alt='genre_feest'>
 			<input class='input' type='checkbox' name='genre[]' value='feest'
 			"?> <?php
@@ -668,8 +707,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/film.png' alt='genre_film'>
 			<input class='input' type='checkbox' name='genre[]' value='film'
 			"?> <?php
@@ -681,8 +722,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/humor.png' alt='genre_humor'>
 			<input class='input' type='checkbox' name='genre[]' value='humor'
 			"?> <?php
@@ -694,8 +737,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/kunst.png' alt='genre_kunst'>
 			<input class='input' type='checkbox' name='genre[]' value='kunst'
 			"?> <?php
@@ -707,8 +752,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/muziek.png' alt='genre_muziek'>
 			<input class='input' type='checkbox' name='genre[]' value='muziek'
 			"?> <?php
@@ -720,8 +767,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/sport.png' alt='genre_sport'>
 			<input class='input' type='checkbox' name='genre[]' value='sport'
 			"?> <?php
@@ -733,8 +782,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/uitstap.png' alt='genre_uitstap'>
 			<input class='input' type='checkbox' name='genre[]' value='uitstap'
 			"?> <?php
@@ -746,8 +797,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/theater.png' alt='genre_theater'>
 			<input class='input' type='checkbox' name='genre[]' value='theater'
 			"?> <?php
@@ -759,8 +812,10 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 		<div class='formblok'>
+			<label>
 			<img class='formimg' src='images/genre/markt.png' alt='genre_markt'>
 			<input class='input' type='checkbox' name='genre[]' value='markt'
 			"?> <?php
@@ -772,6 +827,7 @@
 			?> <?php echo 
 			"
 			>
+			</label>
 		</div>
 	</div>
 	<input name='SendPictos' id='submitnewpicto' value='Ok!' type='submit' />

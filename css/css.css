@@ -115,7 +115,7 @@ nav {
 	width: 530px;
 }
 .eventlist ul li {
-	overflow: none;
+	overflow: auto;
 }
 footer {
 	width: 800px;

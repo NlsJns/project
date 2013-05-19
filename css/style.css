@@ -210,7 +210,7 @@ nav {
 	color:  #333333;
 }
 .navleft a:hover {
-	text-decoration: none;
+	text-decoration: underline;
 }
 .markup a:link, .markup a:visited, .markup a:hover, .markup a:active {
 	text-decoration: none;
@@ -253,7 +253,7 @@ nav {
 	padding: 2%;
 	float: left;
 	margin: 2% 4% 2% 0;
-	overflow: scroll;
+	overflow: auto;
 }
 .eventlist ul li a:link, .eventlist ul li a:visited, .eventlist ul li a:hover, .eventlist ul li a:active {
 	color: black;
