@@ -70,7 +70,7 @@
 			}
 			else {
 				echo("
-			Hoi, Ik ben Arthuur.<br> Ik help je zoeken naar cultuur!<br><br>
+			Hoi, Ik ben Artuur.<br> Ik help je zoeken naar cultuur!<br><br>
 			Begin met een gemeente of een stad in te vullen!
 				");
 			}

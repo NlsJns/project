@@ -144,10 +144,10 @@ body {
 #logo {
 	width: 220px;
 	float: left;
-	height: 70px;
-	margin-top: 20px;
+	height: 80px;
+	margin-top: 10px;
 	margin-right: 20px;
-	background-image: url(../images/logo.jpg);
+	background-image: url(../images/logo.png);
 	display: none;
 }
 #navtop {

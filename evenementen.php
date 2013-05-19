@@ -53,10 +53,6 @@
 	}
 ?>
 
-<!-- /////////         END PHP      ///////// -->    
-
-<!-- /////////         START HTML      ///////// -->    
-
 <!doctype html>
 <html lang="en">
 
@@ -104,7 +100,7 @@
 
 		<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 			<label class="label onpage">Wijzig locatie</label>
-			<input class="onpage stad" type="text" name="Steden" placeholder="vb. Haacht">
+			<input class="onpage stad" type="text" name="Steden" placeholder="<?php echo($city); ?>">
 			<label class="label onpage">Wijzig leeftijd</label>
 			<select class="onpage" name="Leeftijd">
 				<option value="0-120">Alle leeftijden</option>
