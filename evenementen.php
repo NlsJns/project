@@ -70,6 +70,7 @@
 
 	<link rel="stylesheet" href="css/clear.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/css.css">
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
@@ -184,6 +185,8 @@
 			if(isset($_GET['lengte'])) {
 					$eventLengte = $_GET['lengte'];
 					$p = new Picto();
+					$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city . "&pagelength=100&format=json";
+					$events = json_decode(file_get_contents($url));
 					$pictos = $p->GetAllFromLengte($eventLengte);
 						echo("<div class='eventlist'><h3>Lengte: " . $eventLengte . " uur&nbsp;<small>in " . $city . "</small></h3>");
 						echo("<ul>");
@@ -203,6 +206,8 @@
 			else if(isset($_GET['emotie'])) {
 					$eventEmotie = $_GET['emotie'];
 					$p = new Picto();
+					$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city . "&format=json";
+					$events = json_decode(file_get_contents($url));
 					$pictos = $p->GetAllFromEmotie($eventEmotie);
 					echo("<div class='eventlist'><h3>Emotie: " . $eventEmotie . "&nbsp;<small>in " . $city . "</small></h3>");
 					echo("<ul>");
@@ -222,6 +227,8 @@
 			else if(isset($_GET['genre'])) {
 					$eventGenre = $_GET['genre'];
 					$p = new Picto();
+					$url = "http://build.uitdatabank.be/api/events/search?key=AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9&city=" . $city . "&pagelength=100&format=json";
+					$events = json_decode(file_get_contents($url));
 					$pictos = $p->GetAllFromGenre($eventGenre);
 					echo("<div class='eventlist'><h3>Genre: " . $eventGenre . "&nbsp;<small>in " . $city . "</small></h3>");
 					echo("<ul>");
@@ -258,6 +265,15 @@
 	</div>
 	</div>
 		<div id="footer">
+			<footer>
+				<div id="left">
+				Data: <a href="http://www.cultuurnet.be/">Cultuurnet</a> / <a href="http://www.uitdatabank.be/">UiTdatabank</a><br>
+				Website: <a href="http://www.nlsjns.be">NlsJns</a>
+				</div>
+				<div id="right">
+				<a href="#">Een probleem melden.</a>
+				</div>
+			</footer>
 		</div>
 
 <!-- /////////         END CONTENT      ///////// -->    

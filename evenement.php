@@ -111,6 +111,7 @@
 
 	<link rel="stylesheet" href="css/clear.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/css.css">
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
@@ -613,6 +614,32 @@
 			"
 			>
 		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/emotie/verbaasd.png' alt='emotie_verbaasd'>
+			<input class='input' type='checkbox' name='emotie[]' value='verbaasd'
+			"?> <?php
+			if(isset($feedback) && in_array("verbaasd", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/emotie/juichen.png' alt='emotie_juichen'>
+			<input class='input' type='checkbox' name='emotie[]' value='juichen'
+			"?> <?php
+			if(isset($feedback) && in_array("juichen", $emotieAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
 	</div>
 	<div class='formgrootblok'>
 		<p>Genres:</p>
@@ -720,6 +747,32 @@
 			"
 			>
 		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/theater.png' alt='genre_theater'>
+			<input class='input' type='checkbox' name='genre[]' value='theater'
+			"?> <?php
+			if(isset($feedback) && in_array("theater", $genreAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
+		<div class='formblok'>
+			<img class='formimg' src='images/genre/markt.png' alt='genre_markt'>
+			<input class='input' type='checkbox' name='genre[]' value='markt'
+			"?> <?php
+			if(isset($feedback) && in_array("markt", $genreAr) ){ 
+			echo "checked='checked'"; 
+			} 
+			else 
+			{echo '';}
+			?> <?php echo 
+			"
+			>
+		</div>
 	</div>
 	<input name='SendPictos' id='submitnewpicto' value='Ok!' type='submit' />
 	</form>	
@@ -759,6 +812,15 @@
 		<!-- /////////         START FOOTER      ///////// -->    
 
 		<div id="footer">
+			<footer>
+				<div id="left">
+				Data: <a href="http://www.cultuurnet.be/">Cultuurnet</a> / <a href="http://www.uitdatabank.be/">UiTdatabank</a><br>
+				Website: <a href="http://www.nlsjns.be">NlsJns</a>
+				</div>
+				<div id="right">
+				<a href="#">Een probleem melden.</a>
+				</div>
+			</footer>
 		</div>
 
 		<!-- /////////         END FOOTER      ///////// -->    

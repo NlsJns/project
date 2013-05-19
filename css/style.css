@@ -7,15 +7,16 @@ body {
 	height: auto;
 	background-color: #990000;
 	box-shadow: 0px 0px 8px 8px rgba(0,0,0,.3);
+	float: left;
+	margin-bottom: 20px;
 }
 #tekstarthur {
 	margin: 0 auto;
 	background-image: url(../images/tekstballon.png);
 	background-repeat: no-repeat;
-	width: 600px;
+	width: 225px;
 	position: fixed;
-	left: 50%;
-	margin: 15px 0 0 -300px;
+	margin: 10px 0 0 10px;
 	height: 145px;
 }
 #tekstballon {
@@ -30,29 +31,24 @@ body {
 	width: 151px;
 	height: 280px;
 	margin: 0 auto;
+	float: right;
+	margin-right: 10px;
 	background-image: url(../images/arthur.png);
 	background-repeat: no-repeat;
 	background-position: center bottom;
 }
 #arthurside {
-	width: 40px;
-	position: fixed;
-	left: 50%;
-	margin: 0 0 0 180px;
-	height: 190px;
-	float: right;
-	background-image: url(../images/arrow-down.png);
-	background-position-y: -121px;
+	display: none;
 }
 #form {
-	width: 350px;
+	width: 100%;
 	margin: 0 auto;
-	margin-top: 20px;
 }
 .field {
 	padding: 0;
 	margin: 0;
-	width: 348px;
+	width: 80%;
+	margin: 0 auto;
 	height: 30px;
 	display: block;
 	border: 1px solid #990000;
@@ -60,12 +56,12 @@ body {
 	margin-bottom: 15px;
 }
 .steden {
-	width: 340px;
+	width: 78%;
 	padding-left: 7px;
 }
 #nocity {
 	display: block;
-	width: 340px;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
 	color: #990000;
@@ -79,7 +75,7 @@ body {
 	color: white;
 	text-align: right;
 	margin-top: 15px;
-	height: 15px;
+	height: 0px;
 }
 #labelzoek, #labelleeftijd {
 	display: block;
@@ -89,7 +85,8 @@ body {
 	font-size: 1.4em;
 }
 #verzendknop {
-	width: 348px;
+	width: 80%;
+	margin: 0 auto;
 	display: block;
 	height: 32px;
 	background-color: #990000;
@@ -117,27 +114,28 @@ body {
 	margin: 0;
 	padding: 0;
 	display: block;
-	width: 120px;
 	height: 30px;
 	color: black;
 	border: none;
 	clear: none;
 	float: left;
 	margin-top: 3px;
+	width: 50%;
 }
 .stad {
-	width: 113px;
 	padding-left: 7px;
+	width: 48%;
 }
 .label {
-	width: auto;
+	width: 20%;
 	margin-right: 5px;
 	margin-left: 15px;
 	color: white;
 	line-height: 30px;
+	clear: both;
 }
 #header {
-	width: 800px;
+	width: 100%;
 	margin: 0 auto;
 	height: auto;
 	display: block;
@@ -150,13 +148,14 @@ body {
 	margin-top: 20px;
 	margin-right: 20px;
 	background-image: url(../images/logo.jpg);
+	display: none;
 }
 #navtop {
-	width: auto;;
-	float: right;
-	height: 70px;
+	width: 100%;
+	float: left;
+	height: auto;
 	position: relative;
-	margin-top: 20px;
+	margin-top: 0px;
 }
 #navtop ul {
 	width: auto;
@@ -172,24 +171,26 @@ body {
 	margin-left: 20px;
 }
 #container {
-	width: 800px;
+	width: 100%;
 	margin: 0 auto;
 	height: auto;
 }
 nav {
+	clear: both;
 	float: left;
 	font-size: 0.9em;
+	margin-bottom: 20px;
+	width: 100%;
 }
 .navleft {
-	width: 200px;
+	width: 42%;
 	float: left;
 	height: auto;
 	background-color: #2a9e4b;
-	margin-top: 20px;
-	margin-right: 20px;
-	padding: 10px;
+	margin-right: 2%;
+	margin-left: 2%;
+	padding: 2%;
 	font-size: 1.4em;
-	clear: both;
 }
 .navleft ul {
 	list-style-type: none;
@@ -201,7 +202,7 @@ nav {
 }
 .navleft ul li {
 	color:  #333333;
-	height: 18px;
+	height: auto;
 	line-height: 18px;
 }
 .navleft a:link, .navleft a:visited, .navleft a:hover, .navleft a:active {
@@ -219,8 +220,8 @@ nav {
 	text-decoration: underline;
 }
 #content {
-	width: 530px;
-	margin-top: 20px;
+	width: 100%;
+	margin-top: 0px;
 	padding: 10px;
 	float: left;
 }
@@ -252,6 +253,7 @@ nav {
 	padding: 2%;
 	float: left;
 	margin: 2% 4% 2% 0;
+	overflow: scroll;
 }
 .eventlist ul li a:link, .eventlist ul li a:visited, .eventlist ul li a:hover, .eventlist ul li a:active {
 	color: black;
@@ -366,6 +368,30 @@ nav {
 }
 #footer{
   background-color: #990000;
+}
+footer {
+	width: 100%;
+	margin: 0 auto;
+	height: 30px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	line-height: 15px;
+	color: white;
+}
+footer a:link, footer a:visited, footer a:hover, footer a:active {
+	color: white;
+	text-decoration: underline;
+}
+footer a:hover {
+	text-decoration: none;
+}
+#left {
+	float: left;
+	margin-left: 2%;
+}
+#right {
+	float: right;
+	margin-right: 2%;
 }
 .inli {
 	padding-left: 15px;

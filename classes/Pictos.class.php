@@ -105,7 +105,12 @@ VALUES
 	('".$conn->real_escape_string($eventId)."','".$conn->real_escape_string($lengte)."','".$conn->real_escape_string($emotie)."','".$conn->real_escape_string($genre)."');";
 	
 		$result = $conn->query($query);
-		return $result;
+		if($result = "") {
+			throw new Exception("Er ging iets mis bij het opslagen van uw samenvatting. Probeer het later opnieuw.");
+		}
+		else {
+			return $result;
+		}
 	}
 }
 ?>

@@ -42,6 +42,7 @@
 
 	<link rel="stylesheet" href="css/clear.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/css.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>

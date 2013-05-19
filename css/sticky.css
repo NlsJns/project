@@ -19,8 +19,8 @@ html, body {height: 100%;}
 	padding-bottom: 100px;}  /* must be same height as the footer */
 
 #footer {position: relative;
-	margin-top: -100px; /* negative value of footer height */
-	height: 100px;
+	margin-top: -70px; /* negative value of footer height */
+	height: 70px;
 	clear:both;} 
 
 /*Opera Fix*/

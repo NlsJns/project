@@ -1,0 +1,128 @@
+@media only screen and (min-width : 820px) {
+.top {
+	float: left;
+}
+#tekstarthur {
+	width: 600px;
+	position: fixed;
+	left: 50%;
+	margin: 15px 0 0 -300px;
+	height: 145px;
+}
+#arthur {
+	float: none;
+	margin-right: 0;
+	margin: 0 auto;
+}
+#arthurside {
+	display: block;
+	width: 40px;
+	position: fixed;
+	left: 50%;
+	margin: 0 0 0 180px;
+	height: 190px;
+	float: right;
+	background-image: url(../images/arrow-down.png);
+	background-position-y: -121px;
+}
+#form {
+	width: 350px;
+}
+.field {
+	width: 348px;
+}
+.steden {
+	width: 340px;
+}
+#nocity {
+	width: 340px;
+}
+#verzendknop {
+	width: 348px;
+}
+#submitonpage {
+	width: 50px;
+	display: block;
+	height: 30px;
+	background-color: #2a9e4b;
+	border: 1px solid #990000;
+	color: white;
+	border: 1px solid #990000;
+	margin-top: 15px;
+	font-size: 1.3em;
+	clear: none;
+	float: left;
+	margin-top: 3px;
+	margin-left: 15px;
+}
+.onpage {
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 120px;
+	height: 30px;
+	color: black;
+	border: none;
+	clear: none;
+	float: left;
+	margin-top: 3px;
+}
+.stad {
+	width: 113px;
+	padding-left: 7px;
+}
+.label {
+	width: auto;
+	clear: none;
+	margin-right: 5px;
+	margin-left: 15px;
+	color: white;
+	line-height: 30px;
+}
+#logo {
+	display: block;
+}
+#navtop {
+	width: auto;
+	float: right;
+	height: 70px;
+	margin-top: 20px;
+}
+#header {
+	width: 800px;
+}
+#stadtest {
+	height: 15px;
+}
+#container {
+	width: 800px;
+}
+nav {
+	clear: none;
+	width: auto;
+}
+.navleft {
+	width: 200px;
+	clear: both;
+	padding: 10px;
+	margin-right: 20px;
+	margin-left: 0;
+	margin-top: 0;
+	margin-bottom: 20px;
+	height: auto;
+}
+#content {
+	width: 530px;
+}
+.eventlist ul li {
+	overflow: none;
+}
+footer {
+	width: 800px;
+}
+#left, #right {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+}
